@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		ED3187011C21C8A0009799CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3187001C21C8A0009799CE /* AppDelegate.swift */; };
-		ED3187031C21C8A0009799CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3187021C21C8A0009799CE /* ViewController.swift */; };
+		ED3187031C21C8A0009799CE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3187021C21C8A0009799CE /* WelcomeViewController.swift */; };
 		ED3187061C21C8A0009799CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3187041C21C8A0009799CE /* Main.storyboard */; };
 		ED3187081C21C8A0009799CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3187071C21C8A0009799CE /* Assets.xcassets */; };
 		ED31870B1C21C8A0009799CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3187091C21C8A0009799CE /* LaunchScreen.storyboard */; };
 		ED3187161C21C8A0009799CE /* BusBusProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3187151C21C8A0009799CE /* BusBusProjectTests.swift */; };
 		ED3187211C21C8A0009799CE /* BusBusProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3187201C21C8A0009799CE /* BusBusProjectUITests.swift */; };
+		EDE43BB01C2420140001EA9E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE43BAF1C2420140001EA9E /* ChatViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		ED3186FD1C21C8A0009799CE /* BusBusProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusBusProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3187001C21C8A0009799CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED3187021C21C8A0009799CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ED3187021C21C8A0009799CE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		ED3187051C21C8A0009799CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED3187071C21C8A0009799CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED31870A1C21C8A0009799CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		ED31871C1C21C8A0009799CE /* BusBusProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusBusProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3187201C21C8A0009799CE /* BusBusProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusBusProjectUITests.swift; sourceTree = "<group>"; };
 		ED3187221C21C8A0009799CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDE43BAF1C2420140001EA9E /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				ED3187001C21C8A0009799CE /* AppDelegate.swift */,
-				ED3187021C21C8A0009799CE /* ViewController.swift */,
+				ED3187021C21C8A0009799CE /* WelcomeViewController.swift */,
 				ED3187041C21C8A0009799CE /* Main.storyboard */,
+				EDE43BAF1C2420140001EA9E /* ChatViewController.swift */,
 				ED3187071C21C8A0009799CE /* Assets.xcassets */,
 				ED3187091C21C8A0009799CE /* LaunchScreen.storyboard */,
 				ED31870C1C21C8A0009799CE /* Info.plist */,
@@ -255,7 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED3187031C21C8A0009799CE /* ViewController.swift in Sources */,
+				ED3187031C21C8A0009799CE /* WelcomeViewController.swift in Sources */,
+				EDE43BB01C2420140001EA9E /* ChatViewController.swift in Sources */,
 				ED3187011C21C8A0009799CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +487,7 @@
 				ED3187271C21C8A0009799CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED3187281C21C8A0009799CE /* Build configuration list for PBXNativeTarget "BusBusProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +496,7 @@
 				ED31872A1C21C8A0009799CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED31872B1C21C8A0009799CE /* Build configuration list for PBXNativeTarget "BusBusProjectUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +505,7 @@
 				ED31872D1C21C8A0009799CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
