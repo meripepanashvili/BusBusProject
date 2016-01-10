@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJJ-x9-Lrk">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="700" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OJJ-x9-Lrk">
                                 <rect key="frame" x="135" y="205" width="330" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4FL-Hc-BEa"/>
@@ -36,6 +36,16 @@
                                     <action selector="busIntexBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="X5x-nb-Xg7"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="700" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nce-sN-Bfb">
+                                <rect key="frame" x="279" y="149" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="HuO-6V-ggB"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="cAB-Q6-2mC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yue-Ig-52a">
                                 <rect key="frame" x="271" y="302" width="59" height="30"/>
                                 <state key="normal" title="Connect"/>
@@ -47,15 +57,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yue-Ig-52a" firstAttribute="centerX" secondItem="OJJ-x9-Lrk" secondAttribute="centerX" id="ASq-W5-xr4"/>
-                            <constraint firstItem="OJJ-x9-Lrk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="141" id="JrW-1Y-a0k"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yue-Ig-52a" secondAttribute="bottom" constant="268" id="Qri-WW-GtA"/>
+                            <constraint firstItem="OJJ-x9-Lrk" firstAttribute="centerX" secondItem="nce-sN-Bfb" secondAttribute="centerX" id="HbL-iW-m7u"/>
+                            <constraint firstItem="yue-Ig-52a" firstAttribute="top" secondItem="OJJ-x9-Lrk" secondAttribute="bottom" constant="57" id="MDv-Cr-Pwv"/>
                             <constraint firstItem="OJJ-x9-Lrk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VzV-7j-axJ"/>
                             <constraint firstItem="OJJ-x9-Lrk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="55:100" id="WlB-y9-fVa"/>
+                            <constraint firstItem="nce-sN-Bfb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="600" constant="85" id="mZZ-7V-7Yu"/>
+                            <constraint firstItem="OJJ-x9-Lrk" firstAttribute="top" secondItem="nce-sN-Bfb" secondAttribute="bottom" constant="35" id="pvB-vc-WU8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="lessThanOrEqual" secondItem="yue-Ig-52a" secondAttribute="bottom" constant="268" id="t6U-r8-98E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ENT-Rb-4WF"/>
                     <connections>
                         <outlet property="busIndexField" destination="OJJ-x9-Lrk" id="gVs-WD-jPF"/>
+                        <outlet property="busNumberDisplay" destination="nce-sN-Bfb" id="GZy-RT-Ruf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

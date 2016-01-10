@@ -32,6 +32,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         // Dispose of any resources that can be recreated.
     }
 
+    @IBOutlet weak var busNumberDisplay: UILabel!
     
     @IBAction func busIndexFinish(sender: UITextField) {
         busIndexField.userInteractionEnabled = false
@@ -48,7 +49,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
   
     func finishedChecking(busNum: String, checkStatus: Bool, message: String?) {
         if checkStatus {
-            print(busNum)
+            busNumberDisplay.text = busNum
             
         }
         else {
