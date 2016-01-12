@@ -25,6 +25,7 @@ class ChatViewController: UIViewController {
     var messageArray = [String]()
     
     
+    
     func createBubbleMsg(index : Int, color : UIColor, person : CGFloat){
         let message : UILabel = UILabel()
         message.frame = CGRectMake(0, 0, scrollView.frame.size.width - 80, CGFloat.max)
@@ -97,6 +98,7 @@ class ChatViewController: UIViewController {
                 messageField.text = ""
                 displayMessage(person1, index: messageArray.count - 1)
                 //                getMessage(message)
+                
             }
         }
     }

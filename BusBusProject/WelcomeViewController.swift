@@ -27,6 +27,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         busIndexField.userInteractionEnabled = false
         busIndexField.text = busFieldGreeting
         // Do any additional setup after loading the view, typically from a nib.
+        servCon.startConnection()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,9 +41,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         busIndexField.userInteractionEnabled = false
         if let text = sender.text {
             busNumCheck.checkBusNumber(text)
-            
+            servCon.sendText(text)
         }
-        servCon.startConnection()
+        
     }
     
     @IBAction func busIntexBegin(sender: UITextField) {
