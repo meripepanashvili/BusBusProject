@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberCheckerDelegate {
 
     @IBOutlet weak var busIndexField: UITextField!
@@ -17,6 +18,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         return checker
     }()
     
+    let servCon  = ServerConnection()
     
     var busFieldGreeting : String = "Enter Bus Number"
     
@@ -38,8 +40,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         busIndexField.userInteractionEnabled = false
         if let text = sender.text {
             busNumCheck.checkBusNumber(text)
+            
         }
-        
+        servCon.startConnection()
     }
     
     @IBAction func busIntexBegin(sender: UITextField) {
