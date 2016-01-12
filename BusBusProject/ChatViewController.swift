@@ -152,8 +152,10 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate {
         }
     }
     
-    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
-        
+    @IBAction func unwindToViewController (sender: UIStoryboardSegue){}
+ 
+    override func viewWillDisappear(animated: Bool) {
+        self.connection?.closeConnection()
     }
     
 }

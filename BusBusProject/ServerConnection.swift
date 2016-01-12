@@ -53,6 +53,10 @@ class ServerConnection: NSObject {
         
     }
     
+    func closeConnection(){
+        socket.close()
+    }
+    
     func sendText(message : String){
         self.socket.emit("chat", message)
     }
