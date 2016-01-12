@@ -9,7 +9,11 @@
 import UIKit
 
 
-class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberCheckerDelegate, UIAlertViewDelegate {
+class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberCheckerDelegate, UIAlertViewDelegate,
+    WelcomePageDelegate
+
+{
+    @IBOutlet weak var connectButton: UIButton!
 
     @IBOutlet weak var busIndexField: UITextField!
     lazy var busNumCheck : BusNumberChecker = {
@@ -19,6 +23,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     }()
     
     let servCon  = ServerConnection()
+
     
     var busFieldGreeting : String = "Enter Bus Number"
     
@@ -26,8 +31,10 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         super.viewDidLoad()
         busIndexField.userInteractionEnabled = false
         busIndexField.text = busFieldGreeting
+        connectButton.userInteractionEnabled = false
+        
         // Do any additional setup after loading the view, typically from a nib.
-        servCon.startConnection()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +61,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     func finishedChecking(busNum: String, checkStatus: Bool, message: String?) {
         if checkStatus {
             busNumberDisplay.text = busNum
-            
+            connectButton.userInteractionEnabled = true
         }
         else {
             if message != nil {
@@ -76,6 +83,12 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         alert.show()
         
     }
-
+    
+    @IBAction func connectPressed(sender: UIButton) {
+        servCon.startConnection()
+    }
+    func partnerFound(){
+    
+    }
 }
 

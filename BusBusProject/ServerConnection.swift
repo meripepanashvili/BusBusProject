@@ -15,10 +15,10 @@ protocol ChatDelegate {
 }
 
 protocol WelcomePageDelegate{
-    func partnerNotAvaliable()
     func partnerFound()
 }
 class ServerConnection: NSObject {
+    
     let socket = SocketIOClient(socketURL: "omedialab.com:8084")
     var chatDel : ChatDelegate?
     var welcomeDel: WelcomePageDelegate?
@@ -26,6 +26,7 @@ class ServerConnection: NSObject {
     func startConnection(){
         self.addHandlers()
         self.socket.connect()
+        self.socket.emit("find partner")
     }
     
     
@@ -35,6 +36,10 @@ class ServerConnection: NSObject {
                 del.getMessage(data[0] as! String)
             }
             return
+        }
+        
+        self.socket.on("partner found"){ [weak self] data in
+            self?.welcomeDel?.partnerFound()
         }
         
     }
