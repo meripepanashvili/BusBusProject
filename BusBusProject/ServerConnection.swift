@@ -19,10 +19,14 @@ class ServerConnection: NSObject {
     
     
     func addHandlers(){
-        self.socket.on("chat") {[weak self] data, ack in
+        self.socket.on("partner text") {[weak self] data, ack in
             print(data[0])
             print("shemovediii")
             return
         }
+    }
+    
+    func sendText(message : String){
+        self.socket.emit("chat", message)
     }
 }
