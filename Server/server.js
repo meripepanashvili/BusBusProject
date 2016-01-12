@@ -20,8 +20,8 @@
 //   console.log('listening on *:8900');
 // });
 
-var socket1 = null
-var socket2 = null
+var socket1 = false
+var socket2 = false
 
 var app = require('http').createServer()
 
@@ -31,11 +31,11 @@ app.listen(8084)
 var io  = require('socket.io')(app)
 
 io.sockets.on("connection", function(socket) {
-	if (socket1 != null){
+	if (!socket1){
 		socket1 = socket
-		consol.log("lala")
+		socket1.emit("partner text", "alala")
 	}
-	else if(socket2 != null){
+	else if(!socket2){
 		socket2 = socket
 		socket2.on("chat", function( msg) {
 			socket1.emit("partner text" ,msg)
@@ -45,7 +45,6 @@ io.sockets.on("connection", function(socket) {
 		})
 	}
 	
-
     
 })
 
