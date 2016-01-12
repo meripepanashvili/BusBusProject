@@ -10,7 +10,7 @@ import UIKit
 import Socket_IO_Client_Swift
 
 class ServerConnection: NSObject {
-    let socket = SocketIOClient(socketURL: "localhost:8900")
+    let socket = SocketIOClient(socketURL: "omedialab.com:8084")
     
     func startConnection(){
         self.addHandlers()
@@ -21,6 +21,7 @@ class ServerConnection: NSObject {
     func addHandlers(){
         self.socket.on("chat") {[weak self] data, ack in
             print(data[0])
+            print("shemovediii")
             return
         }
     }
