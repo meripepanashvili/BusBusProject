@@ -21,6 +21,7 @@
 // });
 
 var socket1 = null
+var socket2 = null
 
 var app = require('http').createServer()
 
@@ -30,8 +31,22 @@ app.listen(8084)
 var io  = require('socket.io')(app)
 
 io.sockets.on("connection", function(socket) {
-	socket1 = socket
-	socket1.emit("chat", "vahaha", "asdd")
+	if (socket1 != null){
+		socket1 = socket
+	}
+	else if(socket2 != null){
+		socket2 = socket
+		socket2.on("chat", function( msg) {
+			socket1.emit("partner text" ,msg)
+		})
+		socket1.on("chat", function(msg){
+			socket2.emit("partner text" ,msg)
+		})
+	}
+	
+
     
 })
 
+
+ 
