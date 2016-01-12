@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var messageField: UITextField!
@@ -81,30 +81,28 @@ class ChatViewController: UIViewController {
         }
     }
     
-    func getMessage(message : String) {
+    func send(message : String, person : String) {
         if message != "" {
-            senderArray.append(person2)
+            senderArray.append(person)
             messageArray.append(message)
             messageField.text = ""
-            displayMessage(person2, index: messageArray.count - 1)
+            displayMessage(person, index: messageArray.count - 1)
         }
     }
     
-    @IBAction func send(sender: UIButton) {
+    func getMessage(message : String) {
+        send(message, person: person2)
+    }
+    
+    @IBAction func sendMessage(sender: UIButton) {
         if let message = messageField.text {
-            if message != "" {
-                senderArray.append(person1)
-                messageArray.append(message)
-                messageField.text = ""
-                displayMessage(person1, index: messageArray.count - 1)
-                //                getMessage(message)
-                
-            }
+            send(message, person: person1)
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentSize = CGSize(width: 0, height: 0)
+        messageField.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
@@ -114,6 +112,13 @@ class ChatViewController: UIViewController {
         tapScrollViewGesture.numberOfTapsRequired = 1
         scrollView.addGestureRecognizer(tapScrollViewGesture)
         
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if let message = textField.text {
+            send(message, person: person1)
+        }
+        return true
     }
     
     func didTapScrollView() {
