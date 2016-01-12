@@ -43,7 +43,7 @@ class ServerConnection: NSObject {
             self?.welcomeDel?.partnerFound()
         }
         
-        self.socket.on("partner disconnect"){ [weak self] data in
+        self.socket.on("disconnect"){ [weak self] data in
             self?.chatDel?.chatFinished()
         }
         
