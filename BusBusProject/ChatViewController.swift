@@ -96,7 +96,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate {
     }
     
     func chatFinished() {
-        //label ro gavida
+        print("gavida")
     }
     
     @IBAction func sendMessage(sender: UIButton) {
