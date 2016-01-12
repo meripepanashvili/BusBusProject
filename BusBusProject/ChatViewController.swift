@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITextFieldDelegate {
+class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var messageField: UITextField!
     
+    var connection : ServerConnection?
     var messageY : CGFloat = 0
     var frameY : CGFloat = 0
     var msgDist : CGFloat = 30
@@ -94,9 +95,14 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         send(message, person: person2)
     }
     
+    func chatFinished() {
+        //label ro gavida
+    }
+    
     @IBAction func sendMessage(sender: UIButton) {
         if let message = messageField.text {
             send(message, person: person1)
+            connection?.sendText(message)
         }
     }
     override func viewDidLoad() {
@@ -117,6 +123,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let message = textField.text {
             send(message, person: person1)
+            connection?.sendText(message)
         }
         return true
     }
