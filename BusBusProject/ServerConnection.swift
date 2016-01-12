@@ -31,10 +31,12 @@ class ServerConnection: NSObject {
     
     func addHandlers(){
         self.socket.on("partner text") {[weak self] data, ack in
-            print(data[0])
-            print("shemovediii")
+            if let del = self!.chatDel {
+                del.getMessage(data[0] as! String)
+            }
             return
         }
+        
     }
     
     func sendText(message : String){
