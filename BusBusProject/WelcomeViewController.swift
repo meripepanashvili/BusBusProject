@@ -14,18 +14,19 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
 
 {
     @IBOutlet weak var connectButton: UIButton!
+    let servCon  = ServerConnection()
+    var busFieldGreeting : String = "Enter Bus Number"
+    var connectPressed : Bool = false
 
     @IBOutlet weak var busIndexField: UITextField!
+    
     lazy var busNumCheck : BusNumberChecker = {
         var checker :  BusNumberChecker = BusNumberChecker()
         checker.delegate = self
         return checker
     }()
     
-    let servCon  = ServerConnection()
 
-    
-    var busFieldGreeting : String = "Enter Bus Number"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,16 +80,37 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         let alert = UIAlertView(title: "Error in \(busNum)",
             message: alertMessage, delegate: self,
             cancelButtonTitle: "OK")
-
         alert.show()
         
     }
     
     @IBAction func connectPressed(sender: UIButton) {
-        servCon.startConnection()
+        if !connectPressed {
+            servCon.startConnection()
+            connectPressed = true
+            showLoading()
+        }
     }
-    func partnerFound(){
     
+    func showLoading(){
+        
     }
+    
+    func partnerFound(){
+        performSegueWithIdentifier("chatStart", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let dvc = segue.destinationViewController as? ChatViewController {
+            if let id = segue.identifier where id == "chatStart" {
+                    dvc.connection = servCon
+                    servCon.chatDel = dvc
+                    connectPressed = false
+            }
+        }
+    }
+    
+    
+    
 }
 
