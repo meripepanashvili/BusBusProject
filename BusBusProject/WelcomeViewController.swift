@@ -9,7 +9,7 @@
 import UIKit
 
 
-class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberCheckerDelegate {
+class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberCheckerDelegate, UIAlertViewDelegate {
 
     @IBOutlet weak var busIndexField: UITextField!
     lazy var busNumCheck : BusNumberChecker = {
@@ -69,14 +69,11 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     }
     
     func busNumberErrorAlert(busNum : String ,alertMessage : String) {
-        let alert=UIAlertController(title: "Error in \(busNum)", message: alertMessage, preferredStyle: UIAlertControllerStyle.Alert);
-        let okAction = UIAlertAction(title: "OK", style: .Default) { (alert: UIAlertAction!) -> Void in
-            
-        }
-        alert.addAction(okAction)
-        //show it
-        presentViewController(alert, animated: true, completion: nil)
-        
+        let alert = UIAlertView(title: "Error in \(busNum)",
+            message: alertMessage, delegate: self,
+            cancelButtonTitle: "OK")
+
+        alert.show()
         
     }
 
