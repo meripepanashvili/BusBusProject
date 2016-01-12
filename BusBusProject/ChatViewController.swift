@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate {
+class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, UIAlertViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var messageField: UITextField!
@@ -95,8 +95,17 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate {
         send(message, person: person2)
     }
     
+    func chatFinishedAlert() {
+        let alert = UIAlertView(title: "Disconnect",
+            message: "Chat is diconnected", delegate: self,
+            cancelButtonTitle: "OK")
+        alert.show()
+        
+    }
+    
     func chatFinished() {
-        //label ro gavida
+        chatFinishedAlert()
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func sendMessage(sender: UIButton) {
@@ -152,8 +161,10 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate {
         }
     }
     
-    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
-        
+    @IBAction func unwindToViewController (sender: UIStoryboardSegue){}
+ 
+    override func viewWillDisappear(animated: Bool) {
+        self.connection?.closeConnection()
     }
     
 }
