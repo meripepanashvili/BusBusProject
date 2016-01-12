@@ -12,6 +12,7 @@ import Socket_IO_Client_Swift
 protocol ChatDelegate {
     func getMessage(message : String)
     func chatFinished()
+    
 }
 
 protocol WelcomePageDelegate{
@@ -40,6 +41,14 @@ class ServerConnection: NSObject {
         
         self.socket.on("partner found"){ [weak self] data in
             self?.welcomeDel?.partnerFound()
+        }
+        
+        self.socket.on("partner disconnect"){ [weak self] data in
+            self?.chatDel?.chatFinished()
+        }
+        
+        self.socket.on("coordinates"){ [weak self] data in
+            //send coordinates
         }
         
     }
