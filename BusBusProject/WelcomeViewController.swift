@@ -14,7 +14,11 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
 
 {
     @IBOutlet weak var connectButton: UIButton!
-    let servCon  = ServerConnection()
+    lazy var servCon :ServerConnection = {
+       var serverConnection =   ServerConnection()
+        serverConnection.welcomeDel = self
+        return serverConnection
+    }()
     var busFieldGreeting : String = "Enter Bus Number"
     var connectPressed : Bool = false
 
