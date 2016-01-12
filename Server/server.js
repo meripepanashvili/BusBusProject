@@ -33,6 +33,7 @@ var io  = require('socket.io')(app)
 io.sockets.on("connection", function(socket) {
 	if (socket1 != null){
 		socket1 = socket
+		consol.log("lala")
 	}
 	else if(socket2 != null){
 		socket2 = socket
