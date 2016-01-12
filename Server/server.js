@@ -16,10 +16,11 @@ io.sockets.on("connection", function(socket) {
 		//socket1.emit("partner text", "alala")
 	}
 	else if(!socket2){
+		socket2 = socket
 		socket1.emit("partner found")
 		socket2.emit("partner found")
 
-		socket2 = socket
+		
 		socket2.on("chat", function( msg) {
 			socket1.emit("partner text" ,msg)
 		})
