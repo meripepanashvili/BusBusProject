@@ -9,8 +9,19 @@
 import UIKit
 import Socket_IO_Client_Swift
 
+protocol ChatDelegate {
+    func getMessage(message : String)
+    func chatFinished()
+}
+
+protocol WelcomePageDelegate{
+    func partnerNotAvaliable()
+    func partnerFound()
+}
 class ServerConnection: NSObject {
     let socket = SocketIOClient(socketURL: "omedialab.com:8084")
+    var chatDel : ChatDelegate?
+    var welcomeDel: WelcomePageDelegate?
     
     func startConnection(){
         self.addHandlers()
