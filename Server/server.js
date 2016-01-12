@@ -20,14 +20,18 @@
 //   console.log('listening on *:8900');
 // });
 
+var socket1 = null
 
 var app = require('http').createServer()
 
-app.listen(8900)
+app.listen(8084)
 
 
 var io  = require('socket.io')(app)
 
 io.sockets.on("connection", function(socket) {
-        colsole.log("connected")
+	socket1 = socket
+	socket1.emit("chat", "vahaha", "asdd")
+    
 })
+
