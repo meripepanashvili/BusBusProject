@@ -83,11 +83,12 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     }
     
     func busNumberErrorAlert(busNum : String ,alertMessage : String) {
-        let alert = UIAlertView(title: "Error in \(busNum)",
-            message: alertMessage, delegate: self,
-            cancelButtonTitle: "OK")
-        alert.show()
+        let alertController = UIAlertController(title: "Error in \(busNum)", message: alertMessage, preferredStyle: .Alert)
         
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     func getBusNumber() -> String? {
