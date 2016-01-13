@@ -33,16 +33,13 @@ io.sockets.on("connection", function(socket) {
     		if(socket2){
     			socket2.emit("partner disconnect")
     		}
-    		socket1 = false
-    		socket2 = false
+
    		});
 
 		socket2.on('disconnect', function() {
     		if(socket1){
     			socket2.emit("partner disconnect")
     		}
-    		socket1 = false
-    		socket2 = false
    		});
 
 	}
