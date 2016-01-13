@@ -31,7 +31,7 @@ io.sockets.on("connection", function(socket) {
 
 		socket1.on('disconnect', function() {
     		if(socket2){
-    			socket2.emit("partner disconnect")    			
+    					
 			socket2.disconnect()
 			console.log("meore socket arsebobs da vrtav")    	
 		}
@@ -44,7 +44,7 @@ io.sockets.on("connection", function(socket) {
 		socket2.on('disconnect', function() {
     		if(socket1){
 		 	console.log("meore socket arsebobs da vrtav")
-    			socket1.emit("partner disconnect")
+    			
     			socket1.disconnect()
 		}
     		socket2 = null
