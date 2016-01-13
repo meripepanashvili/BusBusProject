@@ -40,6 +40,7 @@ class ServerConnection: NSObject {
         }
         
         self.socket.on("partner found"){ [weak self] data in
+            print("gipove kavshiri")
             self?.welcomeDel?.partnerFound()
         }
         

@@ -31,7 +31,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     }()
     
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         busIndexField.userInteractionEnabled = false
@@ -92,6 +91,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         if !connectPressed {
             servCon.startConnection()
             connectPressed = true
+            print("vcdilob daconnectebas")
             showLoading()
         }
     }

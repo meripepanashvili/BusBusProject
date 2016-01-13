@@ -167,6 +167,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
  
     override func viewWillDisappear(animated: Bool) {
         self.connection?.closeConnection()
+        print("vxurav fanjaras")
     }
     
 }
