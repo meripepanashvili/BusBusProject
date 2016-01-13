@@ -1,7 +1,7 @@
 
 
-var socket1 = null
-var socket2 = null
+var socket1 = 0
+var socket2 = 0
 
 var app = require('http').createServer()
 
@@ -11,12 +11,12 @@ app.listen(8084)
 var io  = require('socket.io')(app)
 
 io.sockets.on("connection", function(socket) {
-	if ( !socket1  ){
+	if (  socket1 == 0  ){
 		console.log(" socket1 shemovida")
 		socket1 = socket
 		//socket1.emit("partner text", "alala")
 	}
-	else if( !socket2 ){
+	else if( socket2 == 0 ){
 		socket2 = socket
 		socket1.emit("partner found")
 		socket2.emit("partner found")
@@ -30,21 +30,21 @@ io.sockets.on("connection", function(socket) {
 		})
 
 		socket1.on('disconnect', function() {
-			socket1 = null
-    		if( socket2 ){		
+			socket1 = 0
+    		if( socket2 != 0 ){		
 				socket2.disconnect()
 				console.log("meore socket arsebobs da vrtav")    	
 			}    		
-    		socket2 = null
+    		socket2 = 0
    		});
 
 		socket2.on('disconnect', function() {
-			socket2 = null
-    		if( socket1 ){
+			socket2 = 0
+    		if( socket1 != 0){
 		 		console.log("pirveli socket arsebobs da vrtav")
     			socket1.disconnect()				
 			}    		
-    		socket1 = null
+    		socket1 = 0
    		});
 
 	}
