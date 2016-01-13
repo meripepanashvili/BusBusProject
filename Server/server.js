@@ -1,7 +1,7 @@
 
 
-var socket1 = false
-var socket2 = false
+var socket1 = null
+var socket2 = null
 
 var app = require('http').createServer()
 
@@ -11,15 +11,15 @@ app.listen(8084)
 var io  = require('socket.io')(app)
 
 io.sockets.on("connection", function(socket) {
-	if (!socket1){
+	if ( socket1 == null ){
 		socket1 = socket
 		//socket1.emit("partner text", "alala")
 	}
-	else if(!socket2){
+	else if( socket2 == null ){
 		socket2 = socket
 		socket1.emit("partner found")
 		socket2.emit("partner found")
-
+		socket1.emit("partner text", "megobari mogivida")
 		
 		socket2.on("chat", function( msg) {
 			socket1.emit("partner text" ,msg)
@@ -30,20 +30,20 @@ io.sockets.on("connection", function(socket) {
 
 		socket1.on('disconnect', function() {
     		if(socket2){
-    			socket2.emit("partner disconnect")
-    			socket1 = socket2
-    			socket2 = false
+    			socket2.emit("partner disconnect")    			
     		}
-    		else{
-    			socket1 = false
-    		}
+    		socket1 = null
+    		socket2 = null
+
+
    		});
 
 		socket2.on('disconnect', function() {
     	if(socket1){
     		socket1.emit("partner disconnect")
     	}
-    		socket2 = false
+    		socket2 = null
+    		socket1 = null
    		});
 
 	}
