@@ -30,23 +30,23 @@ io.sockets.on("connection", function(socket) {
 		})
 
 		socket1.on('disconnect', function() {
-    		if(socket2){
-    					
-			socket2.disconnect()
-			console.log("meore socket arsebobs da vrtav")    	
-		}
+    		if(socket2){		
+				socket2.disconnect()
+				console.log("meore socket arsebobs da vrtav")    	
+			}
+			socket1.disconnect()
     		socket1 = null
     		socket2 = null
-
 
    		});
 
 		socket2.on('disconnect', function() {
     		if(socket1){
-		 	console.log("meore socket arsebobs da vrtav")
-    			
+		 		console.log("pirveli socket arsebobs da vrtav")
     			socket1.disconnect()
-		}
+				
+			}
+			socket2.disconnect()
     		socket2 = null
     		socket1 = null
    		});
