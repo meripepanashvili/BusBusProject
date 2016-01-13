@@ -31,6 +31,7 @@ class BusNumberChecker: NSObject {
             }
             else if length > numberLength{
                 del.finishedChecking(busNum, checkStatus: false, message: "Bus Number is too long")
+                return 
             }
             
             var index = 1

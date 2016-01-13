@@ -22,7 +22,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     var busFieldGreeting : String = "Enter Bus Number"
     var connectPressed : Bool = false
 
+    @IBOutlet weak var connectionStatus: UILabel!
     @IBOutlet weak var busIndexField: UITextField!
+    @IBOutlet weak var connectActivity: UIActivityIndicatorView!
     
     lazy var busNumCheck : BusNumberChecker = {
         var checker :  BusNumberChecker = BusNumberChecker()
@@ -36,7 +38,8 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         busIndexField.userInteractionEnabled = false
         busIndexField.text = busFieldGreeting
         connectButton.userInteractionEnabled = false
-        
+        connectActivity.hidden = true
+        connectionStatus.text = ""
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -87,20 +90,30 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         
     }
     
+    func getBusNumber() -> String? {
+        return busNumberDisplay.text
+    }
+    
     @IBAction func connectPressed(sender: UIButton) {
         if !connectPressed {
             servCon.startConnection()
             connectPressed = true
             print("vcdilob daconnectebas")
             showLoading()
+           // partnerFound()
         }
     }
     
     func showLoading(){
-        
+        connectActivity.hidden = false
+        connectActivity.startAnimating()
+        connectionStatus.text! = "Searching for Partner"
     }
     
     func partnerFound(){
+        connectActivity.stopAnimating()
+        connectActivity.hidden = true
+        connectionStatus.text = ""
         performSegueWithIdentifier("chatStart", sender: nil)
     }
     
