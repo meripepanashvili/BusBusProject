@@ -85,7 +85,6 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         if message != "" {
             senderArray.append(person)
             messageArray.append(message)
-            messageField.text = ""
             displayMessage(person, index: messageArray.count - 1)
         }
     }
@@ -104,7 +103,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     func chatFinished() {
         chatFinishedAlert()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     @IBAction func sendMessage(sender: UIButton) {
