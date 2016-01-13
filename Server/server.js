@@ -11,9 +11,10 @@ app.listen(8084)
 var io  = require('socket.io')(app)
 
 io.sockets.on("connection", function(socket) {
+ socket.emit("partner found", "alala")
 	if (!socket1){
 		socket1 = socket
-		//socket1.emit("partner text", "alala")
+		socket1.emit("partner found", "alala")
 	}
 	else if(!socket2){
 		socket2 = socket
@@ -30,7 +31,7 @@ io.sockets.on("connection", function(socket) {
 
 		socket1.on('disconnect', function() {
     		if(socket2){
-    			socket2.close()
+    			socket2.emit("partner disconnect")
     		}
     		socket1 = false
     		socket2 = false
@@ -38,7 +39,7 @@ io.sockets.on("connection", function(socket) {
 
 		socket2.on('disconnect', function() {
     		if(socket1){
-    			socket1.close()
+    			socket2.emit("partner disconnect")
     		}
     		socket1 = false
     		socket2 = false
