@@ -18,8 +18,8 @@ io.sockets.on("connection", function(socket) {
 	}
 	else if( socket2 == 0 ){
 		socket2 = socket
-		console.log(socket1)
-		console.log(socket2)
+		//console.log(socket1)
+		//console.log(socket2)
 		socket1.emit("partner found")
 		//socket2.emit("partner found")
 		socket1.emit("partner text", "megobari mogivida")
