@@ -170,4 +170,9 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         print("vxurav fanjaras")
     }
     
+    override func willMoveToParentViewController(parent: UIViewController?) {
+        self.connection?.closeConnection()
+        print("vxurav fanjaras 2" )
+    }
+    
 }
