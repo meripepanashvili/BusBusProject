@@ -24,7 +24,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     var senderArray = [String]()
     var messageArray = [String]()
-    
+
     
     func createBubbleMsg(index : Int, color : UIColor, person : CGFloat){
         let message : UILabel = UILabel()
@@ -103,6 +103,8 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     func chatFinished() {
         chatFinishedAlert()
+        connection?.chatDel = nil
+        connection = nil
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
@@ -113,6 +115,11 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         }
         messageField.text = ""
     }
+    
+    func respondOnMakeSound() {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentSize = CGSize(width: 0, height: 0)
@@ -167,12 +174,12 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
  
     override func viewWillDisappear(animated: Bool) {
         self.connection?.closeConnection()
-        print("vxurav fanjaras")
+        connection = nil
+        //print("vxurav fanjaras")
     }
     
     override func willMoveToParentViewController(parent: UIViewController?) {
-        self.connection?.closeConnection()
-        print("vxurav fanjaras 2" )
+        
     }
     
 }
