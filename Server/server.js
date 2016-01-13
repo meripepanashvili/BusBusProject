@@ -30,19 +30,17 @@ io.sockets.on("connection", function(socket) {
 
 		socket1.on('disconnect', function() {
     		if(socket2){
-    			socket2.emit("partner disconnect")
-    			socket1 = socket2
-    			socket2 = false
+    			socket2.close()
     		}
-    		else{
-    			socket1 = false
-    		}
+    		socket1 = false
+    		socket2 = false
    		});
 
 		socket2.on('disconnect', function() {
-    	if(socket1){
-    		socket1.emit("partner disconnect")
-    	}
+    		if(socket1){
+    			socket1.close()
+    		}
+    		socket1 = false
     		socket2 = false
    		});
 
