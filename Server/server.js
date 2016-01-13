@@ -21,7 +21,7 @@ io.sockets.on("connection", function(socket) {
 		console.log(socket1)
 		console.log(socket2)
 		socket1.emit("partner found")
-		socket2.emit("partner found")
+		//socket2.emit("partner found")
 		socket1.emit("partner text", "megobari mogivida")
 		console.log("socket2 shemovida")		
 		socket2.on("chat", function( msg) {
