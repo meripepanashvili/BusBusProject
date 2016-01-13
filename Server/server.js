@@ -1,7 +1,7 @@
 
 
-var socket1 = null
-var socket2 = null
+var socket1 = 0
+var socket2 = 0
 
 var app = require('http').createServer()
 
@@ -11,16 +11,19 @@ app.listen(8084)
 var io  = require('socket.io')(app)
 
 io.sockets.on("connection", function(socket) {
-	if ( socket1 == null ){
+	if (  socket1 == 0  ){
+		console.log(" socket1 shemovida")
 		socket1 = socket
 		//socket1.emit("partner text", "alala")
 	}
-	else if( socket2 == null ){
+	else if( socket2 == 0 ){
 		socket2 = socket
+		//console.log(socket1)
+		//console.log(socket2)
 		socket1.emit("partner found")
-		socket2.emit("partner found")
+		//socket2.emit("partner found")
 		socket1.emit("partner text", "megobari mogivida")
-		
+		console.log("socket2 shemovida")		
 		socket2.on("chat", function( msg) {
 			socket1.emit("partner text" ,msg)
 		})
@@ -29,21 +32,21 @@ io.sockets.on("connection", function(socket) {
 		})
 
 		socket1.on('disconnect', function() {
-    		if(socket2){
-    			socket2.emit("partner disconnect")    			
-    		}
-    		socket1 = null
-    		socket2 = null
-
-
+			socket1 = 0
+    		if( socket2 != 0 ){		
+				socket2.disconnect()
+				console.log("meore socket arsebobs da vrtav")    	
+			}    		
+    		socket2 = 0
    		});
 
 		socket2.on('disconnect', function() {
-    	if(socket1){
-    		socket1.emit("partner disconnect")
-    	}
-    		socket2 = null
-    		socket1 = null
+			socket2 = 0
+    		if( socket1 != 0){
+		 		console.log("pirveli socket arsebobs da vrtav")
+    			socket1.disconnect()				
+			}    		
+    		socket1 = 0
    		});
 
 	}
