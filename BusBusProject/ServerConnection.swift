@@ -43,9 +43,9 @@ class ServerConnection: NSObject {
             self?.welcomeDel?.partnerFound()
         }
         
-        self.socket.on("disconnect"){ [weak self] data in
-            self?.chatDel?.chatFinished()
-        }
+       // self.socket.on("disconnect"){ [weak self] data in
+         //   self?.chatDel?.chatFinished()
+        //}
         
         self.socket.on("partner disconnect"){ [weak self] data in
             self?.chatDel?.chatFinished()
@@ -53,6 +53,10 @@ class ServerConnection: NSObject {
         
         self.socket.on("coordinates"){ [weak self] data in
             //send coordinates
+        }
+        
+        self.socket.on("test"){ [weak self] data in
+            print("agervar")
         }
         
     }
