@@ -110,7 +110,7 @@
                                 </constraints>
                                 <state key="normal" title="send"/>
                                 <connections>
-                                    <action selector="send:" destination="1R6-EI-VrE" eventType="touchUpInside" id="Xuv-rj-rFZ"/>
+                                    <action selector="sendMessage:" destination="1R6-EI-VrE" eventType="touchUpInside" id="wtR-BQ-t3F"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v42-Xj-AWf">
@@ -123,7 +123,7 @@
                                 </constraints>
                                 <state key="normal" title="--"/>
                                 <connections>
-                                    <segue destination="z8b-IH-TEf" kind="presentation" id="b5y-MA-rhc"/>
+                                    <segue destination="z8b-IH-TEf" kind="presentation" modalPresentationStyle="overFullScreen" id="b5y-MA-rhc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -183,7 +183,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.014086174242424199" green="0.014086174242424199" blue="0.014086174242424199" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="1EM-Zd-dzv" firstAttribute="top" secondItem="Qzc-wl-TUV" secondAttribute="bottom" constant="20" id="5Oy-SH-2HE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qzc-wl-TUV" secondAttribute="trailing" id="FUH-eq-b3f"/>

@@ -26,7 +26,6 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     var messageArray = [String]()
     
     
-    
     func createBubbleMsg(index : Int, color : UIColor, person : CGFloat){
         let message : UILabel = UILabel()
         message.frame = CGRectMake(0, 0, scrollView.frame.size.width - 80, CGFloat.max)
@@ -113,6 +112,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
             send(message, person: person1)
             connection?.sendText(message)
         }
+        messageField.text = ""
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,6 +134,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
             send(message, person: person1)
             connection?.sendText(message)
         }
+        messageField.text = ""
         return true
     }
     
@@ -161,7 +162,9 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         }
     }
     
-    @IBAction func unwindToViewController (sender: UIStoryboardSegue){}
+    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
  
     override func viewWillDisappear(animated: Bool) {
         self.connection?.closeConnection()
