@@ -11,12 +11,12 @@ app.listen(8084)
 var io  = require('socket.io')(app)
 
 io.sockets.on("connection", function(socket) {
-	if ( socket1 == null ){
+	if ( !socket1  ){
 		console.log(" socket1 shemovida")
 		socket1 = socket
 		//socket1.emit("partner text", "alala")
 	}
-	else if( socket2 == null ){
+	else if( !socket2 ){
 		socket2 = socket
 		socket1.emit("partner found")
 		socket2.emit("partner found")
