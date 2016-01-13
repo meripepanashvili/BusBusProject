@@ -47,6 +47,10 @@ class ServerConnection: NSObject {
             self?.chatDel?.chatFinished()
         }
         
+        self.socket.on("partner disconnect"){ [weak self] data in
+            self?.chatDel?.chatFinished()
+        }
+        
         self.socket.on("coordinates"){ [weak self] data in
             //send coordinates
         }
@@ -54,7 +58,7 @@ class ServerConnection: NSObject {
     }
     
     func closeConnection(){
-        socket.close()
+        socket.disconnect()
     }
     
     func sendText(message : String){
