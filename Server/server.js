@@ -78,6 +78,6 @@ io.sockets.on("connection", function(socket) {
 		connected = 0
 		socket.disconnectRoom(room);
 	});
-}
+})
 
  
