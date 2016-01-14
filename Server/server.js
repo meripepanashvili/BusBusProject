@@ -83,6 +83,13 @@ io.sockets.on("connection", function(socket) {
 //     console.log('Username: ' + client.nickname)
 // })
 	}
+
+	socket.on("chat", function(msg){
+		io.sockets.in(room).emit("partner text" ,msg, socket.id)
+	})
+
+
+
 	socket.on("disconnect", function(){
 		connected = 0
 		var rooms = io.sockets.manager.roomClients[socket.id];
