@@ -29,7 +29,7 @@ class ServerConnection: NSObject, LocationDelegate {
     var location = LocationGetter()
     
     func initServerConnection(){
-        self.addHandlers()        
+        self.addHandlers()
         location.delegate = self
         location.initLocation()
     }
@@ -63,21 +63,21 @@ class ServerConnection: NSObject, LocationDelegate {
                 self?.welcomeDel?.getAlertFromServer("Location Alert", message: locMessage)
                 self?.socket.emit("recieve location", -1, -1)
             }
-        
+            
         }
         
-       self.socket.on("disconnect"){ [weak self] data in
-           self?.chatDel?.chatFinished()
-           self?.chatDel = nil
-           print("disconnectshi movedi")
-       }
+        self.socket.on("disconnect"){ [weak self] data in
+            self?.chatDel?.chatFinished()
+            self?.chatDel = nil
+            print("disconnectshi movedi")
+        }
         
-//        self.socket.on("partner disconnect"){ [weak self] data in
-//            self?.chatDel?.chatFinished()
-//            self?.socket.disconnect()
-//            print("disconnectshi movedi")
-//            return
-//        }
+        //        self.socket.on("partner disconnect"){ [weak self] data in
+        //            self?.chatDel?.chatFinished()
+        //            self?.socket.disconnect()
+        //            print("disconnectshi movedi")
+        //            return
+        //        }
         
         self.socket.on("get bus number"){ [weak self] data in
             if let busNum = self?.welcomeDel?.getBusNumber() {
@@ -90,19 +90,19 @@ class ServerConnection: NSObject, LocationDelegate {
             self?.chatDel?.respondOnMakeSound()
         }
         
-//        self.socket.on("download picture") { [weak self] data in
-//            //
-//        
-//        }
-//        
-//        self.socket.on("coordinates"){ [weak self] data in
-//            //send coordinates
-//        }
-//        
-//        self.socket.on("test"){ [weak self] data in
-//            print("agervar")
-//            return
-//        }
+        //        self.socket.on("download picture") { [weak self] data in
+        //            //
+        //
+        //        }
+        //
+        //        self.socket.on("coordinates"){ [weak self] data in
+        //            //send coordinates
+        //        }
+        //
+        //        self.socket.on("test"){ [weak self] data in
+        //            print("agervar")
+        //            return
+        //        }
         
     }
     
