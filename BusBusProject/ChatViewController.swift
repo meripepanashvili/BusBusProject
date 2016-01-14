@@ -18,6 +18,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     var frameY : CGFloat = 0
     var msgDist : CGFloat = 30
     var keyboardHidden = true
+    var quote : String = ""
     
     var person1 : String = "person1"
     var person2 : String = "person2"
@@ -215,6 +216,9 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         tapScrollViewGesture.numberOfTapsRequired = 1
         scrollView.addGestureRecognizer(tapScrollViewGesture)
 
+        if quote != "" {
+            messageField.text = quote
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

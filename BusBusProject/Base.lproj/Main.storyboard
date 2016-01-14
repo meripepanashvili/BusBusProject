@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="369"/>
+            <point key="canvasLocation" x="958" y="369"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="Emc-A7-8IA">
@@ -155,6 +155,9 @@ HEAVY DOUBLE TURNED COMMA QUOTATION MARK ORNAMENT
 Unicode: U+275D, UTF-8: E2 9D 9D</string>
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="nDQ-Dm-wqi" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="PNd-54-yhR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dF5-hI-Sdk">
                                         <rect key="frame" x="365" y="31" width="187" height="70"/>
@@ -271,6 +274,168 @@ Unicode: U+1F3B5 (U+D83C U+DFB5), UTF-8: F0 9F 8E B5</string>
             </objects>
             <point key="canvasLocation" x="1640" y="369"/>
         </scene>
+        <!--Categories View Controller-->
+        <scene sceneID="Uhl-Ug-h55">
+            <objects>
+                <viewController id="nDQ-Dm-wqi" customClass="CategoriesViewController" customModule="BusBusProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3w9-La-S6F"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ezu-v4-XVl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2cN-tk-bvn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJk-bd-8az">
+                                <rect key="frame" x="235" y="247" width="130" height="30"/>
+                                <state key="normal" title="საუბრის დაწყება">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cooseCategory:" destination="nDQ-Dm-wqi" eventType="touchUpInside" id="Rsl-9g-JXB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gyc-4I-VLb">
+                                <rect key="frame" x="276" y="285" width="48" height="30"/>
+                                <state key="normal" title="რაღაც">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cooseCategory:" destination="nDQ-Dm-wqi" eventType="touchUpInside" id="LaU-Ba-1Hl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGX-nm-8qV">
+                                <rect key="frame" x="255" y="323" width="91" height="30"/>
+                                <state key="normal" title="კიდე რაღაც">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cooseCategory:" destination="nDQ-Dm-wqi" eventType="touchUpInside" id="cIS-jM-dgu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUZ-Rf-LyU">
+                                <rect key="frame" x="243" y="361" width="115" height="30"/>
+                                <state key="normal" title="დამშვიდობება">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cooseCategory:" destination="nDQ-Dm-wqi" eventType="touchUpInside" id="XzN-v0-8wu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZ7-Z2-YrX">
+                                <rect key="frame" x="265" y="550" width="70" height="30"/>
+                                <state key="normal" title="დახურვა">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LFR-eA-HH5" kind="unwind" identifier="backToChat" unwindAction="unwindToViewController:" id="Jmo-y6-NS9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzO-5y-Kjo">
+                                <rect key="frame" x="260" y="209" width="81" height="30"/>
+                                <state key="normal" title="მისალმება">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cooseCategory:" destination="nDQ-Dm-wqi" eventType="touchUpInside" id="eWm-Bs-PYF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.00021701388888883955" green="0.00021701388888883955" blue="0.00021701388888883955" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GzO-5y-Kjo" firstAttribute="centerX" secondItem="QJk-bd-8az" secondAttribute="centerX" id="2op-oy-Jbr"/>
+                            <constraint firstItem="MGX-nm-8qV" firstAttribute="centerX" secondItem="Gyc-4I-VLb" secondAttribute="centerX" id="77U-vh-vsV"/>
+                            <constraint firstItem="JUZ-Rf-LyU" firstAttribute="centerX" secondItem="MGX-nm-8qV" secondAttribute="centerX" id="IEC-fh-dcQ"/>
+                            <constraint firstItem="Gyc-4I-VLb" firstAttribute="centerX" secondItem="2cN-tk-bvn" secondAttribute="centerX" id="KCh-5u-zNJ"/>
+                            <constraint firstItem="QJk-bd-8az" firstAttribute="centerX" secondItem="Gyc-4I-VLb" secondAttribute="centerX" id="Npt-cl-xr0"/>
+                            <constraint firstItem="MGX-nm-8qV" firstAttribute="top" secondItem="Gyc-4I-VLb" secondAttribute="bottom" constant="8" symbolic="YES" id="aYf-Pu-1gH"/>
+                            <constraint firstItem="sZ7-Z2-YrX" firstAttribute="centerX" secondItem="2cN-tk-bvn" secondAttribute="centerX" id="eHv-eD-QSu"/>
+                            <constraint firstItem="Ezu-v4-XVl" firstAttribute="top" secondItem="sZ7-Z2-YrX" secondAttribute="bottom" constant="20" id="ikE-Yu-p1Z"/>
+                            <constraint firstItem="JUZ-Rf-LyU" firstAttribute="top" secondItem="MGX-nm-8qV" secondAttribute="bottom" constant="8" symbolic="YES" id="ltH-mD-Mkx"/>
+                            <constraint firstItem="Gyc-4I-VLb" firstAttribute="centerY" secondItem="2cN-tk-bvn" secondAttribute="centerY" id="nHl-ha-hOn"/>
+                            <constraint firstItem="Gyc-4I-VLb" firstAttribute="top" secondItem="QJk-bd-8az" secondAttribute="bottom" constant="8" symbolic="YES" id="rZ4-ay-4cT"/>
+                            <constraint firstItem="QJk-bd-8az" firstAttribute="top" secondItem="GzO-5y-Kjo" secondAttribute="bottom" constant="8" symbolic="YES" id="tii-CM-YWv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="2fc-rm-2od" kind="presentation" identifier="chooseCategory" id="ogR-0C-ybW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DrJ-Bb-g3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LFR-eA-HH5" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2322" y="369"/>
+        </scene>
+        <!--Quotes View Controller-->
+        <scene sceneID="RWW-p4-yNE">
+            <objects>
+                <viewController id="2fc-rm-2od" customClass="QuotesViewController" customModule="BusBusProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pzp-gO-BkH"/>
+                        <viewControllerLayoutGuide type="bottom" id="gc5-JF-Wz8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h97-IS-OQm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFI-ih-p7z">
+                                <rect key="frame" x="25" y="20" width="36" height="30"/>
+                                <state key="normal" title="უკან">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="uWw-Uj-g9t" kind="unwind" identifier="back" unwindAction="unwindToViewController2:" id="qrO-4s-cXW"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g6X-Ra-OuF">
+                                <rect key="frame" x="25" y="58" width="555" height="522"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Quote" textLabel="MbW-xm-5Qn" style="IBUITableViewCellStyleDefault" id="nA5-JD-Rqm">
+                                        <rect key="frame" x="0.0" y="28" width="555" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nA5-JD-Rqm" id="bVY-v9-WGg">
+                                            <rect key="frame" x="0.0" y="0.0" width="555" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MbW-xm-5Qn">
+                                                    <rect key="frame" x="15" y="0.0" width="525" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="LFR-eA-HH5" kind="unwind" identifier="chose" unwindAction="unwindToViewController2:" id="OR1-mb-yWs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gc5-JF-Wz8" firstAttribute="top" secondItem="g6X-Ra-OuF" secondAttribute="bottom" constant="20" id="5Bc-ZG-GEf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g6X-Ra-OuF" secondAttribute="trailing" id="5GB-My-Ee8"/>
+                            <constraint firstItem="g6X-Ra-OuF" firstAttribute="leading" secondItem="h97-IS-OQm" secondAttribute="leadingMargin" constant="5" id="CG6-Lh-QCC"/>
+                            <constraint firstItem="WFI-ih-p7z" firstAttribute="leading" secondItem="h97-IS-OQm" secondAttribute="leadingMargin" constant="5" id="CHH-NO-BOR"/>
+                            <constraint firstItem="g6X-Ra-OuF" firstAttribute="top" secondItem="WFI-ih-p7z" secondAttribute="bottom" constant="8" id="OZk-Zw-dBJ"/>
+                            <constraint firstItem="WFI-ih-p7z" firstAttribute="top" secondItem="pzp-gO-BkH" secondAttribute="bottom" id="v5c-jK-C3z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="g6X-Ra-OuF" id="duH-SS-Vrn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Enj-8K-Djy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uWw-Uj-g9t" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2322" y="1099"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="MjW-HB-ha9">
             <objects>
@@ -287,7 +452,7 @@ Unicode: U+1F3B5 (U+D83C U+DFB5), UTF-8: F0 9F 8E B5</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i9e-Hj-GYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="190" y="369"/>
+            <point key="canvasLocation" x="280" y="369"/>
         </scene>
     </scenes>
     <resources>

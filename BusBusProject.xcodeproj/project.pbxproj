@@ -17,6 +17,9 @@
 		ED3187211C21C8A0009799CE /* BusBusProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3187201C21C8A0009799CE /* BusBusProjectUITests.swift */; };
 		EDE1633D1C47497D00A68D6B /* camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EDE1633C1C47497D00A68D6B /* camera-icon.png */; settings = {ASSET_TAGS = (); }; };
 		EDE43BB01C2420140001EA9E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE43BAF1C2420140001EA9E /* ChatViewController.swift */; };
+		EDE897201C47CF9900BBDE01 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE8971F1C47CF9900BBDE01 /* CategoriesViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		EDE897221C47CFE000BBDE01 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE897211C47CFE000BBDE01 /* TransitionManager.swift */; settings = {ASSET_TAGS = (); }; };
+		EDE897241C47D46C00BBDE01 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE897231C47D46C00BBDE01 /* QuotesViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F2A67CB61C452B2100AF9EDA /* BusNumberChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */; };
 		F2A67CB81C45328300AF9EDA /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A67CB71C45328300AF9EDA /* ServerConnection.swift */; };
 		F2ED24B51C47092C00A73803 /* LocationGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED24B41C47092C00A73803 /* LocationGetter.swift */; };
@@ -56,6 +59,9 @@
 		ED3187221C21C8A0009799CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDE1633C1C47497D00A68D6B /* camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-icon.png"; sourceTree = "<group>"; };
 		EDE43BAF1C2420140001EA9E /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		EDE8971F1C47CF9900BBDE01 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		EDE897211C47CFE000BBDE01 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		EDE897231C47D46C00BBDE01 /* QuotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
 		F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusNumberChecker.swift; sourceTree = "<group>"; };
 		F2A67CB71C45328300AF9EDA /* ServerConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
 		F2ED24B41C47092C00A73803 /* LocationGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationGetter.swift; sourceTree = "<group>"; };
@@ -142,6 +148,9 @@
 				ED31870C1C21C8A0009799CE /* Info.plist */,
 				F2A67CB71C45328300AF9EDA /* ServerConnection.swift */,
 				F2ED24B41C47092C00A73803 /* LocationGetter.swift */,
+				EDE8971F1C47CF9900BBDE01 /* CategoriesViewController.swift */,
+				EDE897211C47CFE000BBDE01 /* TransitionManager.swift */,
+				EDE897231C47D46C00BBDE01 /* QuotesViewController.swift */,
 			);
 			path = BusBusProject;
 			sourceTree = "<group>";
@@ -355,11 +364,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDE897221C47CFE000BBDE01 /* TransitionManager.swift in Sources */,
 				ED3187031C21C8A0009799CE /* WelcomeViewController.swift in Sources */,
 				F2A67CB61C452B2100AF9EDA /* BusNumberChecker.swift in Sources */,
 				EDE43BB01C2420140001EA9E /* ChatViewController.swift in Sources */,
 				F2A67CB81C45328300AF9EDA /* ServerConnection.swift in Sources */,
 				ED3187011C21C8A0009799CE /* AppDelegate.swift in Sources */,
+				EDE897201C47CF9900BBDE01 /* CategoriesViewController.swift in Sources */,
+				EDE897241C47D46C00BBDE01 /* QuotesViewController.swift in Sources */,
 				F2ED24B51C47092C00A73803 /* LocationGetter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
