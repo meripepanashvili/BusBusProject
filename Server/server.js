@@ -99,7 +99,8 @@ io.sockets.on("connection", function(socket) {
 		// 		io.sockets.adapter.nsp.connected[id].disconnect()
   //   		}
 		// }
-		io.sockets.in(socket.room).leave(socket.room);
+		var namespace = '/'
+		var roomCollect = io.nsps[namespace].adapter.rooms[room];
 		// var rooms = io.sockets.manager.roomClients[socket.id];
   //      for(var room in rooms) {
   //          socket.leave(room);
