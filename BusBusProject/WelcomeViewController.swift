@@ -14,9 +14,10 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
 
 {
     @IBOutlet weak var connectButton: UIButton!
-    lazy var servCon :ServerConnection = {
+    lazy var servCon : ServerConnection = {
        var serverConnection =   ServerConnection()
         serverConnection.welcomeDel = self
+        serverConnection.initServerConnection()
         return serverConnection
     }()
     var busFieldGreeting : String = "Enter Bus Number"
@@ -55,7 +56,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         busIndexField.userInteractionEnabled = false
         if let text = sender.text {
             busNumCheck.checkBusNumber(text)
-            servCon.sendText(text)
         }
         
     }
@@ -80,6 +80,15 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         busIndexField.userInteractionEnabled = true
+    }
+    
+    func getAlertFromServer(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     func busNumberErrorAlert(busNum : String ,alertMessage : String) {

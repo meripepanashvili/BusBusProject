@@ -16,23 +16,33 @@ protocol ChatDelegate {
     
 }
 
-protocol WelcomePageDelegate{
+protocol WelcomePageDelegate {
+    func getAlertFromServer(title : String, message : String)
     func partnerFound()
     func getBusNumber() -> String?
 }
-class ServerConnection: NSObject {
+class ServerConnection: NSObject, LocationDelegate {
     
     let socket = SocketIOClient(socketURL: "omedialab.com:8084")
     var chatDel : ChatDelegate?
     var welcomeDel: WelcomePageDelegate?
+    var location = LocationGetter()
     
-    
-    func startConnection(){
-        self.addHandlers()
-        self.socket.connect()
-        self.socket.emit("find partner")
+    func initServerConnection(){
+        self.addHandlers()        
+        location.delegate = self
+        location.initLocation()
     }
     
+    func startConnection(){
+        self.socket.connect()
+        self.socket.emit("find partner")
+        
+    }
+    
+    func foundLoaction(latitude: Double, longitude: Double) {
+        self.socket.emit("recieve location", latitude, longitude)
+    }
     
     func addHandlers(){
         self.socket.on("partner text") {[weak self] data, ack in
@@ -46,6 +56,14 @@ class ServerConnection: NSObject {
             print("gipove kavshiri")
             self?.welcomeDel?.partnerFound()
             return
+        }
+        
+        self.socket.on("get location") { [weak self] data in
+            if let locMessage =  self?.location.getLocation() {
+                self?.welcomeDel?.getAlertFromServer("Location Alert", message: locMessage)
+                self?.socket.emit("recieve location", -1, -1)
+            }
+        
         }
         
        self.socket.on("disconnect"){ [weak self] data in
