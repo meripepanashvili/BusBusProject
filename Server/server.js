@@ -78,7 +78,8 @@ io.sockets.on("connection", function(socket) {
 		console.log("shemovedit")
 		io.sockets.in(room).emit("partner found")
 		//var roster = io.sockets.clients('chatroom1')
-
+ 	var r = Object.keys(socket.adapter.rooms[room])
+	 console.log(r.length)
 // roster.forEach(function(client) {
 //     console.log('Username: ' + client.nickname)
 // })
@@ -99,17 +100,19 @@ io.sockets.on("connection", function(socket) {
 		// 		io.sockets.adapter.nsp.connected[id].disconnect()
   //   		}
 		// }
-		var namespace = '/'
-		var roomCollect = io.nsps[namespace].adapter.rooms[room]
-		for (var sock in roomCollect){
-			sock.leave(room)
-		}
-		console.log(Object.keys(room).length)
+//		var namespace = '/'
+//		var roomCollect = io.nsps[namespace].adapter.rooms[room]
+//		for (var sock in roomCollect){
+//			sock.leave(room)
+//		}
+//		console.log(Object.keys(room).length)
+		
 		// var rooms = io.sockets.manager.roomClients[socket.id];
   //      for(var room in rooms) {
   //          socket.leave(room);
   //      }
-	});
+	
 })
 
  
+})
