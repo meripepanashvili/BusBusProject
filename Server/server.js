@@ -80,13 +80,16 @@ io.sockets.on("connection", function(socket) {
 		//var roster = io.sockets.clients('chatroom1')
  	var r = Object.keys(socket.adapter.rooms[room])
 	 console.log(r.length)
-	 for (var sock in r){
-		sock.leave(room)
-		sock.disconnect()
+//	 for (var sock in r){
+//		sock.leave(room)
+//		sock.disconnect()
 //		}
 // roster.forEach(function(client) {
 //     console.log('Username: ' + client.nickname)
 // })
+			io.sockets.clients(someRoom).forEach(function(s){
+    		s.leave(someRoom)
+		})
 	}
 
 	socket.on("chat", function(msg){
