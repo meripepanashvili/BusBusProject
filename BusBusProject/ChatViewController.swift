@@ -180,7 +180,9 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     func chatFinishedAlert() {
         let alertController = UIAlertController(title: "Disconnect", message: "Chat is diconnected", preferredStyle: .Alert)
         
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: {(alert: UIAlertAction!) in
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        })
         alertController.addAction(defaultAction)
         
         presentViewController(alertController, animated: true, completion: nil)

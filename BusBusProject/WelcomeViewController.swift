@@ -58,7 +58,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         if let text = sender.text {
             busNumCheck.checkBusNumber(text)
         }
-        
+        sender.text! = ""
     }
     
     @IBAction func busIntexBegin(sender: UITextField) {
@@ -70,6 +70,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         if checkStatus {
             busNumberDisplay.text = busNum
             connectButton.userInteractionEnabled = true
+            busIndexField.resignFirstResponder()
         }
         else {
             if message != nil {
@@ -95,8 +96,11 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     func busNumberErrorAlert(busNum : String ,alertMessage : String) {
         let alertController = UIAlertController(title: "Error in \(busNum)", message: alertMessage, preferredStyle: .Alert)
         
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alertController.addAction(defaultAction)
+        alertController.addAction(UIAlertAction(title: "Okay",
+            style: UIAlertActionStyle.Default,
+            handler: {(alert: UIAlertAction!) in self.busIndexField.becomeFirstResponder()
+        }))
+        
         
         presentViewController(alertController, animated: true, completion: nil)
     }
@@ -126,7 +130,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         connectActivity.hidden = true
         connectionStatus.text = ""
         animatePopUp()
-       // performSegueWithIdentifier("chatStart", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -160,10 +163,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     }
     
     
-    @IBAction func didTapView(sender: UITapGestureRecognizer) {
+    @IBAction func didTapView(sender: UITapGestureRecognizer?) {
         view.endEditing(true)
     }
-    
     
 }
 
