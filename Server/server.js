@@ -92,14 +92,14 @@ io.sockets.on("connection", function(socket) {
 
 	socket.on("disconnect", function(){
 		connected = 0
-		roomRes = io.sockets.adapter.rooms[room];
-		if (room) {
-    		for (var id in roomRes) {
-    			io.sockets.adapter.nsp.connected[id].leave(room)
-				io.sockets.adapter.nsp.connected[id].disconnect()
-    		}
-		}
-
+		// roomRes = io.sockets.adapter.rooms[room];
+		// if (room) {
+  //   		for (var id in roomRes) {
+  //   			io.sockets.adapter.nsp.connected[id].leave(room)
+		// 		io.sockets.adapter.nsp.connected[id].disconnect()
+  //   		}
+		// }
+		io.sockets.in(socket.room).leave(socket.room);
 		// var rooms = io.sockets.manager.roomClients[socket.id];
   //      for(var room in rooms) {
   //          socket.leave(room);
