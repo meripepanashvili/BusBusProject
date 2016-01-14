@@ -139,6 +139,9 @@
                                                 <exclude reference="JFw-yv-7cZ"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="bTa-pS-4cu" eventType="touchUpInside" id="ttI-TX-mww"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYU-uG-XJN">
                                         <rect key="frame" x="8" y="31" width="187" height="70"/>

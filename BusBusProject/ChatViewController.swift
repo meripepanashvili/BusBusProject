@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, UIAlertViewDelegate {
+class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var messageField: UITextField!
@@ -46,6 +46,47 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
             self.presenting = !self.presenting
             self.popUpView.transform = CGAffineTransformIdentity
             }, completion: { finished in })
+    }
+    
+    var imageView = UIImageView()
+    var imagePicker: UIImagePickerController!
+    
+    @IBAction func takePhoto(sender: UIButton) {
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .Camera
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+        print("kkukuk")
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        createBubbleImage(UIColor.yellowColor(), person: 1)
+    }
+    
+    func createBubbleImage(color : UIColor, person : CGFloat){
+        let image : UIImageView = imageView
+        image.frame = CGRectMake(0, 0, scrollView.frame.size.width - 80, CGFloat.max)
+        image.backgroundColor = color
+        image.sizeToFit()
+        image.frame.origin.x = (scrollView.frame.size.width - image.frame.size.width) * person
+        image.frame.origin.y = messageY
+        
+        messageY += image.frame.size.height + msgDist
+        
+        let OffS = CGFloat(10)
+        let frame : UILabel = UILabel()
+        frame.frame.size = CGSizeMake(image.frame.size.width + OffS, image.frame.size.height + OffS)
+        frame.frame.origin = CGPoint(x: (scrollView.frame.size.width - frame.frame.size.width) * person, y: frameY)
+        frame.backgroundColor = color
+        frame.layer.masksToBounds = true
+        frame.layer.cornerRadius = 10
+        scrollView.addSubview(frame)
+        scrollView.addSubview(image)
+        
+        frameY += frame.frame.size.height + msgDist - OffS
     }
     
     func createBubbleMsg(index : Int, color : UIColor, person : CGFloat){
