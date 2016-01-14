@@ -71,9 +71,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yue-Ig-52a">
-                                <rect key="frame" x="250" y="227" width="100" height="100"/>
+                                <rect key="frame" x="232" y="227" width="136" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="yue-Ig-52a" secondAttribute="height" id="tPu-gK-ULX"/>
+                                    <constraint firstAttribute="width" secondItem="yue-Ig-52a" secondAttribute="height" multiplier="1.365:1" id="tPu-gK-ULX"/>
                                 </constraints>
                                 <state key="normal" title="Connect" image="busbusPic.png"/>
                                 <connections>
@@ -82,6 +82,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Pei-mF-L4r" firstAttribute="centerX" secondItem="yue-Ig-52a" secondAttribute="centerX" id="17O-Im-RcA"/>
                             <constraint firstItem="yue-Ig-52a" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:6" id="4tY-cl-rcv"/>
@@ -98,6 +99,9 @@
                             <constraint firstItem="dIa-Kz-hem" firstAttribute="top" relation="greaterThanOrEqual" secondItem="yue-Ig-52a" secondAttribute="bottom" priority="700" constant="167" id="uU0-L9-XCo"/>
                             <constraint firstItem="nce-sN-Bfb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="wrc-wv-I8p"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="QNF-eo-u2v" appends="YES" id="szG-aS-BdL"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="ENT-Rb-4WF"/>
                     <connections>
@@ -110,6 +114,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="QNF-eo-u2v">
+                    <connections>
+                        <action selector="didTapView:" destination="BYZ-38-t0r" id="VPK-ko-Cxa"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="958" y="369"/>
         </scene>

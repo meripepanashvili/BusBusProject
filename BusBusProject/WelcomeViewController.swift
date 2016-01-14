@@ -111,7 +111,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
             connectPressed = true
             print("vcdilob daconnectebas")
             showLoading()
-             partnerFound()
         }
     }
     
@@ -137,7 +136,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
                 dvc.connection = servCon
                 servCon.chatDel = dvc
                 connectPressed = false
-               
+                dvc.parentView = self
             }
         }
     }
@@ -157,8 +156,12 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
             self.connectButton.transform = offScreen
             }, completion: {[weak self] finished in
                 self?.performSegueWithIdentifier("chatStart", sender: nil)
-                self?.returnBusToOrigin()
             })
+    }
+    
+    
+    @IBAction func didTapView(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     
