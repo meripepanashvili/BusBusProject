@@ -43,5 +43,7 @@ class CategoriesViewController: UIViewController {
     @IBAction func unwindToViewController2 (sender: UIStoryboardSegue){
         performSegueWithIdentifier("backToChat", sender: nil)
     }
+    
+    @IBAction func unwindToViewController3 (sender: UIStoryboardSegue){}
 
 }
