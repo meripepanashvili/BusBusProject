@@ -26,6 +26,8 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     var senderArray = [String]()
     var messageArray = [String]()
     
+    var parentView : WelcomeViewController?
+    
     @IBOutlet weak var chatView: UIView!
     @IBOutlet weak var popUpView: UIView!
     var presenting = false
@@ -267,6 +269,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     override func viewWillDisappear(animated: Bool) {
         self.connection?.closeConnection()
         connection = nil
+        parentView?.returnBusToOrigin()
         //print("vxurav fanjaras")
     }
     
