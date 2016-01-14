@@ -22,6 +22,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     }()
     var busFieldGreeting : String = "Enter Bus Number"
     var connectPressed : Bool = false
+    var busLocation : CGPoint = CGPoint(x: 0, y: 0)
     
     @IBOutlet weak var connectionStatus: UILabel!
     @IBOutlet weak var busIndexField: UITextField!
@@ -110,7 +111,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
             connectPressed = true
             print("vcdilob daconnectebas")
             showLoading()
-            // partnerFound()
+             partnerFound()
         }
     }
     
@@ -121,22 +122,44 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     }
     
     func partnerFound(){
+        
         connectActivity.stopAnimating()
         connectActivity.hidden = true
         connectionStatus.text = ""
-        performSegueWithIdentifier("chatStart", sender: nil)
+        animatePopUp()
+       // performSegueWithIdentifier("chatStart", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let dvc = segue.destinationViewController as? ChatViewController {
             if let id = segue.identifier where id == "chatStart" {
+                
                 dvc.connection = servCon
                 servCon.chatDel = dvc
                 connectPressed = false
+               
             }
         }
     }
     
+    func returnBusToOrigin(){
+        
+        let offScreen = CGAffineTransformMakeTranslation(0,0)
+        UIView.animateWithDuration(0, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.1, options: [], animations: {
+            self.connectButton.transform = offScreen
+            }, completion: { finished in })
+    }
+    
+    func animatePopUp(){
+        let offScreen = CGAffineTransformMakeTranslation(view.frame.width, 0)
+        busLocation = connectButton.frame.origin
+        UIView.animateWithDuration(3, delay: 0.1, usingSpringWithDamping: 1, initialSpringVelocity: 0.01, options: [], animations: {
+            self.connectButton.transform = offScreen
+            }, completion: {[weak self] finished in
+                self?.performSegueWithIdentifier("chatStart", sender: nil)
+                self?.returnBusToOrigin()
+            })
+    }
     
     
 }
