@@ -90,19 +90,19 @@ class ServerConnection: NSObject, LocationDelegate {
             self?.chatDel?.respondOnMakeSound()
         }
         
-        self.socket.on("download picture") { [weak self] data in
-            //
-        
-        }
-        
-        self.socket.on("coordinates"){ [weak self] data in
-            //send coordinates
-        }
-        
-        self.socket.on("test"){ [weak self] data in
-            print("agervar")
-            return
-        }
+//        self.socket.on("download picture") { [weak self] data in
+//            //
+//        
+//        }
+//        
+//        self.socket.on("coordinates"){ [weak self] data in
+//            //send coordinates
+//        }
+//        
+//        self.socket.on("test"){ [weak self] data in
+//            print("agervar")
+//            return
+//        }
         
     }
     

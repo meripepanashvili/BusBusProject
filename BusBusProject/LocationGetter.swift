@@ -17,7 +17,7 @@ class LocationGetter: NSObject, CLLocationManagerDelegate {
     var manager = CLLocationManager()
     var enabled : Bool = false
     var delegate : LocationDelegate?
-    
+    var yetNotFound : Bool = true
     func initLocation(){
         self.manager.requestAlwaysAuthorization()
         self.manager.requestWhenInUseAuthorization()
@@ -31,6 +31,7 @@ class LocationGetter: NSObject, CLLocationManagerDelegate {
     
     func getLocation() -> String?{
         if enabled {
+            yetNotFound = true
             self.manager.startUpdatingLocation()
             print("enabled location")
             return nil
@@ -41,12 +42,16 @@ class LocationGetter: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        manager.stopUpdatingLocation()
         let lastLocation = locations[locations.endIndex-1]
         let coordinate: CLLocationCoordinate2D = lastLocation.coordinate
         if let del = delegate {
-            print(coordinate)
-            del.foundLoaction(Double(coordinate.latitude ), longitude: Double(coordinate.longitude))
+            if yetNotFound{
+                del.foundLoaction(Double(coordinate.latitude ), longitude: Double(coordinate.longitude))
+                yetNotFound = false
+            }
         }
+        
         
         
     }
