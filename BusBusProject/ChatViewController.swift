@@ -84,7 +84,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     func createBubbleImage(color : UIColor, person : CGFloat){
         let image : UIImageView = UIImageView()
-        image.image = resizeImage(imageView.image!, newWidth: 100)
+        image.image = resizeImage(imageView.image!, newWidth: scrollView.frame.width/2)
         image.frame = CGRectMake(0, 0, scrollView.frame.size.width - 80, CGFloat.max)
         image.backgroundColor = color
         image.sizeToFit()
