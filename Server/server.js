@@ -69,14 +69,17 @@ var io  = require('socket.io')(app)
 var room  = "two person"
 var connected = 0
 io.sockets.on("connection", function(socket) {
+	console.log("kavshiri")
+	console.log(connected)
 	connected++
 	socket.join("room")
 	if ( connected == 2 ) {
-		socket.broadcast.to( room ).emit('partner found');
+		console.log("shemovedit")
+		socket.broadcast.to( "two person" ).emit('partner found');
 	}
 	socket.on("disconnect", function(){
 		connected = 0
-		socket.disconnectRoom(room);
+		socket.disconnectRoom("two person");
 	});
 })
 
