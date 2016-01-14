@@ -21,6 +21,7 @@
 		EDE897221C47CFE000BBDE01 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE897211C47CFE000BBDE01 /* TransitionManager.swift */; };
 		EDE897241C47D46C00BBDE01 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE897231C47D46C00BBDE01 /* QuotesViewController.swift */; };
 		F2639EF01C4803F600BB73BD /* busbusPic.png in Resources */ = {isa = PBXBuildFile; fileRef = F2639EEF1C4803F600BB73BD /* busbusPic.png */; };
+		F2639EF21C4836A400BB73BD /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = F2639EF11C4836A400BB73BD /* chat.png */; };
 		F2A67CB61C452B2100AF9EDA /* BusNumberChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */; };
 		F2A67CB81C45328300AF9EDA /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A67CB71C45328300AF9EDA /* ServerConnection.swift */; };
 		F2ED24B51C47092C00A73803 /* LocationGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED24B41C47092C00A73803 /* LocationGetter.swift */; };
@@ -64,6 +65,7 @@
 		EDE897211C47CFE000BBDE01 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		EDE897231C47D46C00BBDE01 /* QuotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
 		F2639EEF1C4803F600BB73BD /* busbusPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = busbusPic.png; sourceTree = "<group>"; };
+		F2639EF11C4836A400BB73BD /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
 		F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusNumberChecker.swift; sourceTree = "<group>"; };
 		F2A67CB71C45328300AF9EDA /* ServerConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
 		F2ED24B41C47092C00A73803 /* LocationGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationGetter.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		EDE163391C47317000A68D6B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F2639EF11C4836A400BB73BD /* chat.png */,
 				F2639EEF1C4803F600BB73BD /* busbusPic.png */,
 				EDE1633C1C47497D00A68D6B /* camera-icon.png */,
 			);
@@ -296,6 +299,7 @@
 				ED3187081C21C8A0009799CE /* Assets.xcassets in Resources */,
 				EDE1633D1C47497D00A68D6B /* camera-icon.png in Resources */,
 				ED3187061C21C8A0009799CE /* Main.storyboard in Resources */,
+				F2639EF21C4836A400BB73BD /* chat.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

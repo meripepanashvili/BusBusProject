@@ -111,24 +111,36 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     }
     
     func createBubbleMsg(index : Int, color : UIColor, person : CGFloat){
+        let OffS = CGFloat(20)
         let message : UILabel = UILabel()
         message.frame = CGRectMake(0, 0, scrollView.frame.size.width - 80, CGFloat.max)
-        message.backgroundColor = color
+        //message.backgroundColor = color
         message.numberOfLines = 0
         message.textColor = UIColor.blackColor()
         message.text = messageArray[index]
         message.textAlignment = NSTextAlignment.Left
         message.sizeToFit()
-        message.frame.origin.x = (scrollView.frame.size.width - message.frame.size.width) * person
+        if person == 1 {
+            message.frame.origin.x = (scrollView.frame.size.width - message.frame.size.width) * person - OffS
+        }
+        else {
+            message.frame.origin.x = (scrollView.frame.size.width - message.frame.size.width) * person + OffS/2
+        }
         message.frame.origin.y = messageY
         
         messageY += message.frame.size.height + msgDist
         
-        let OffS = CGFloat(10)
+        
         let frame : UILabel = UILabel()
         frame.frame.size = CGSizeMake(message.frame.size.width + OffS, message.frame.size.height + OffS)
-        frame.frame.origin = CGPoint(x: (scrollView.frame.size.width - frame.frame.size.width) * person, y: frameY)
-        frame.backgroundColor = color
+        if person == 1 {
+            frame.frame.origin = CGPoint(x: (scrollView.frame.size.width - frame.frame.size.width ) * person - OffS/2, y: frameY - OffS/2)
+        }
+        else {
+             frame.frame.origin = CGPoint(x: (scrollView.frame.size.width - frame.frame.size.width ) * person , y: frameY - OffS/2)
+        }
+        
+        frame.backgroundColor = UIColor(red:26/255, green: 154/255, blue: 243/255, alpha: 0.7)
         frame.layer.masksToBounds = true
         frame.layer.cornerRadius = 10
         scrollView.addSubview(frame)
