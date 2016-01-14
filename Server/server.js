@@ -22,6 +22,8 @@ io.sockets.on("connection", function(socket) {
 		//console.log(socket2)
 		socket1.emit("partner found")
 		socket2.emit("partner found")
+		socket1.emit("get location")
+		socket2.emit("get location")
 	//	socket1.emit("partner text", "megobari mogivida")
 		console.log("socket2 shemovida")		
 		socket2.on("chat", function( msg) {
@@ -49,8 +51,12 @@ io.sockets.on("connection", function(socket) {
     		socket1 = 0
    		});
 
-	}
+   	}
 	
+	socket.on('recieve location', function(data1, data2){
+		console.log(data1 + "  " + data2)
+
+	});
 	
     
 })
