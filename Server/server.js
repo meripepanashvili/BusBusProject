@@ -72,14 +72,23 @@ io.sockets.on("connection", function(socket) {
 	console.log("kavshiri")
 	console.log(connected)
 	connected++
-	socket.join("room")
+	socket.join(room)
+
 	if ( connected == 2 ) {
 		console.log("shemovedit")
-		io.sockets.in('two person').emit("partner found")
+		io.sockets.in(room).emit("partner found");
+		var roster = io.sockets.clients('chatroom1');
+
+roster.forEach(function(client) {
+    console.log('Username: ' + client.nickname);
+});
 	}
 	socket.on("disconnect", function(){
 		connected = 0
-		socket.disconnectRoom("two person");
+		var rooms = io.sockets.manager.roomClients[socket.id];
+       for(var room in rooms) {
+           socket.leave(room);
+       }
 	});
 })
 
