@@ -55,24 +55,42 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .Camera
-        
+
         presentViewController(imagePicker, animated: true, completion: nil)
-        print("kkukuk")
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
         createBubbleImage(UIColor.yellowColor(), person: 1)
+        
+        scrollView.contentSize = CGSize(width: 0, height: messageY)
+        let bottomOffset:CGPoint = CGPointMake(0, scrollView.contentSize.height - scrollView.bounds.size.height)
+        scrollView.setContentOffset(bottomOffset, animated: false)
+    }
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+        image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
     
     func createBubbleImage(color : UIColor, person : CGFloat){
-        let image : UIImageView = imageView
+        let image : UIImageView = UIImageView()
+        image.image = resizeImage(imageView.image!, newWidth: 100)
         image.frame = CGRectMake(0, 0, scrollView.frame.size.width - 80, CGFloat.max)
         image.backgroundColor = color
         image.sizeToFit()
         image.frame.origin.x = (scrollView.frame.size.width - image.frame.size.width) * person
         image.frame.origin.y = messageY
+        image.clipsToBounds = true
         
         messageY += image.frame.size.height + msgDist
         
