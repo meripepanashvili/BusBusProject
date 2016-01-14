@@ -24,7 +24,29 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     var senderArray = [String]()
     var messageArray = [String]()
-
+    
+    @IBOutlet weak var chatView: UIView!
+    @IBOutlet weak var popUpView: UIView!
+    var presenting = false
+    
+    @IBAction func popUp(sender: AnyObject) {
+        view.endEditing(true)
+        if self.presenting {
+            animatePopUp(0)
+        } else {
+            animatePopUp(-popUpView.frame.height)
+        }
+    }
+    
+    func animatePopUp(height : CGFloat){
+        let offScreen = CGAffineTransformMakeTranslation(0, height)
+        
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 0.8, options: [], animations: {
+            self.chatView.transform = offScreen
+            self.presenting = !self.presenting
+            self.popUpView.transform = CGAffineTransformIdentity
+            }, completion: { finished in })
+    }
     
     func createBubbleMsg(index : Int, color : UIColor, person : CGFloat){
         let message : UILabel = UILabel()
@@ -109,7 +131,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    @IBAction func sendMessage(sender: UIButton) {
+    @IBAction func sendMessage(sender: AnyObject) {
         if let message = messageField.text {
             send(message, person: person1)
             connection?.sendText(message)
@@ -133,7 +155,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         let tapScrollViewGesture = UITapGestureRecognizer(target: self, action: "didTapScrollView")
         tapScrollViewGesture.numberOfTapsRequired = 1
         scrollView.addGestureRecognizer(tapScrollViewGesture)
-        
+
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -147,6 +169,9 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     func didTapScrollView() {
         view.endEditing(true)
+        if presenting {
+            animatePopUp(0)
+        }
     }
     
     func rotated () {
@@ -154,6 +179,9 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     }
     
     func keyboardWillShow(notification: NSNotification) {
+        if presenting {
+            animatePopUp(0)
+        }
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
             if keyboardHidden {
                 view.frame.origin.y -= keyboardSize.height

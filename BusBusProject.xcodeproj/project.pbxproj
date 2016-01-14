@@ -15,6 +15,7 @@
 		ED31870B1C21C8A0009799CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3187091C21C8A0009799CE /* LaunchScreen.storyboard */; };
 		ED3187161C21C8A0009799CE /* BusBusProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3187151C21C8A0009799CE /* BusBusProjectTests.swift */; };
 		ED3187211C21C8A0009799CE /* BusBusProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3187201C21C8A0009799CE /* BusBusProjectUITests.swift */; };
+		EDE1633B1C47318400A68D6B /* camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EDE1633A1C47318400A68D6B /* camera-icon.png */; settings = {ASSET_TAGS = (); }; };
 		EDE43BB01C2420140001EA9E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE43BAF1C2420140001EA9E /* ChatViewController.swift */; };
 		F2A67CB61C452B2100AF9EDA /* BusNumberChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */; };
 		F2A67CB81C45328300AF9EDA /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A67CB71C45328300AF9EDA /* ServerConnection.swift */; };
@@ -52,6 +53,7 @@
 		ED31871C1C21C8A0009799CE /* BusBusProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusBusProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3187201C21C8A0009799CE /* BusBusProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusBusProjectUITests.swift; sourceTree = "<group>"; };
 		ED3187221C21C8A0009799CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDE1633A1C47318400A68D6B /* camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "camera-icon.png"; path = "../../../../../camera-icon.png"; sourceTree = "<group>"; };
 		EDE43BAF1C2420140001EA9E /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusNumberChecker.swift; sourceTree = "<group>"; };
 		F2A67CB71C45328300AF9EDA /* ServerConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		ED3186FF1C21C8A0009799CE /* BusBusProject */ = {
 			isa = PBXGroup;
 			children = (
+				EDE163391C47317000A68D6B /* images */,
 				F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */,
 				ED3187001C21C8A0009799CE /* AppDelegate.swift */,
 				ED3187021C21C8A0009799CE /* WelcomeViewController.swift */,
@@ -156,6 +159,14 @@
 				ED3187221C21C8A0009799CE /* Info.plist */,
 			);
 			path = BusBusProjectUITests;
+			sourceTree = "<group>";
+		};
+		EDE163391C47317000A68D6B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				EDE1633A1C47318400A68D6B /* camera-icon.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 				ED31870B1C21C8A0009799CE /* LaunchScreen.storyboard in Resources */,
 				ED3187081C21C8A0009799CE /* Assets.xcassets in Resources */,
 				ED3187061C21C8A0009799CE /* Main.storyboard in Resources */,
+				EDE1633B1C47318400A68D6B /* camera-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
