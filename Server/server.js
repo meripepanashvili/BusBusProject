@@ -75,7 +75,7 @@ io.sockets.on("connection", function(socket) {
 	socket.join("room")
 	if ( connected == 2 ) {
 		console.log("shemovedit")
-		socket.broadcast.to( "two person" ).emit('partner found');
+		io.sockets.in('two person').emit("partner found")
 	}
 	socket.on("disconnect", function(){
 		connected = 0
