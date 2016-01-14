@@ -11,17 +11,18 @@ import UIKit
 
 class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberCheckerDelegate, UIAlertViewDelegate,
     WelcomePageDelegate
-
+    
 {
     @IBOutlet weak var connectButton: UIButton!
-    lazy var servCon :ServerConnection = {
-       var serverConnection =   ServerConnection()
+    lazy var servCon : ServerConnection = {
+        var serverConnection =   ServerConnection()
         serverConnection.welcomeDel = self
+        serverConnection.initServerConnection()
         return serverConnection
     }()
     var busFieldGreeting : String = "Enter Bus Number"
     var connectPressed : Bool = false
-
+    
     @IBOutlet weak var connectionStatus: UILabel!
     @IBOutlet weak var busIndexField: UITextField!
     @IBOutlet weak var connectActivity: UIActivityIndicatorView!
@@ -32,7 +33,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         return checker
     }()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         busIndexField.userInteractionEnabled = false
@@ -43,28 +44,27 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         // Do any additional setup after loading the view, typically from a nib.
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBOutlet weak var busNumberDisplay: UILabel!
     
     @IBAction func busIndexFinish(sender: UITextField) {
         busIndexField.userInteractionEnabled = false
         if let text = sender.text {
             busNumCheck.checkBusNumber(text)
-            servCon.sendText(text)
         }
         
     }
     
     @IBAction func busIntexBegin(sender: UITextField) {
         sender.text! = ""
-       
+        
     }
-  
+    
     func finishedChecking(busNum: String, checkStatus: Bool, message: String?) {
         if checkStatus {
             busNumberDisplay.text = busNum
@@ -80,6 +80,15 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         busIndexField.userInteractionEnabled = true
+    }
+    
+    func getAlertFromServer(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     func busNumberErrorAlert(busNum : String ,alertMessage : String) {
@@ -101,7 +110,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
             connectPressed = true
             print("vcdilob daconnectebas")
             showLoading()
-           // partnerFound()
+            // partnerFound()
         }
     }
     
@@ -121,9 +130,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let dvc = segue.destinationViewController as? ChatViewController {
             if let id = segue.identifier where id == "chatStart" {
-                    dvc.connection = servCon
-                    servCon.chatDel = dvc
-                    connectPressed = false
+                dvc.connection = servCon
+                servCon.chatDel = dvc
+                connectPressed = false
             }
         }
     }

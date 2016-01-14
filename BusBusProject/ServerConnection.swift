@@ -16,23 +16,33 @@ protocol ChatDelegate {
     
 }
 
-protocol WelcomePageDelegate{
+protocol WelcomePageDelegate {
+    func getAlertFromServer(title : String, message : String)
     func partnerFound()
     func getBusNumber() -> String?
 }
-class ServerConnection: NSObject {
+class ServerConnection: NSObject, LocationDelegate {
     
     let socket = SocketIOClient(socketURL: "omedialab.com:8084")
     var chatDel : ChatDelegate?
     var welcomeDel: WelcomePageDelegate?
+    var location = LocationGetter()
     
-    
-    func startConnection(){
+    func initServerConnection(){
         self.addHandlers()
-        self.socket.connect()
-        self.socket.emit("find partner")
+        location.delegate = self
+        location.initLocation()
     }
     
+    func startConnection(){
+        self.socket.connect()
+        self.socket.emit("find partner")
+        
+    }
+    
+    func foundLoaction(latitude: Double, longitude: Double) {
+        self.socket.emit("recieve location", latitude, longitude)
+    }
     
     func addHandlers(){
         self.socket.on("partner text") {[weak self] data, ack in
@@ -48,18 +58,26 @@ class ServerConnection: NSObject {
             return
         }
         
-       self.socket.on("disconnect"){ [weak self] data in
-           self?.chatDel?.chatFinished()
-           self?.chatDel = nil
-           print("disconnectshi movedi")
-       }
+        self.socket.on("get location") { [weak self] data in
+            if let locMessage =  self?.location.getLocation() {
+                self?.welcomeDel?.getAlertFromServer("Location Alert", message: locMessage)
+                self?.socket.emit("recieve location", -1, -1)
+            }
+            
+        }
         
-//        self.socket.on("partner disconnect"){ [weak self] data in
-//            self?.chatDel?.chatFinished()
-//            self?.socket.disconnect()
-//            print("disconnectshi movedi")
-//            return
-//        }
+        self.socket.on("disconnect"){ [weak self] data in
+            self?.chatDel?.chatFinished()
+            self?.chatDel = nil
+            print("disconnectshi movedi")
+        }
+        
+        //        self.socket.on("partner disconnect"){ [weak self] data in
+        //            self?.chatDel?.chatFinished()
+        //            self?.socket.disconnect()
+        //            print("disconnectshi movedi")
+        //            return
+        //        }
         
         self.socket.on("get bus number"){ [weak self] data in
             if let busNum = self?.welcomeDel?.getBusNumber() {
@@ -72,19 +90,19 @@ class ServerConnection: NSObject {
             self?.chatDel?.respondOnMakeSound()
         }
         
-        self.socket.on("download picture") { [weak self] data in
-            //
-        
-        }
-        
-        self.socket.on("coordinates"){ [weak self] data in
-            //send coordinates
-        }
-        
-        self.socket.on("test"){ [weak self] data in
-            print("agervar")
-            return
-        }
+        //        self.socket.on("download picture") { [weak self] data in
+        //            //
+        //
+        //        }
+        //
+        //        self.socket.on("coordinates"){ [weak self] data in
+        //            //send coordinates
+        //        }
+        //
+        //        self.socket.on("test"){ [weak self] data in
+        //            print("agervar")
+        //            return
+        //        }
         
     }
     
