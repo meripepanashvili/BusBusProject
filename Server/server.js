@@ -100,7 +100,11 @@ io.sockets.on("connection", function(socket) {
   //   		}
 		// }
 		var namespace = '/'
-		var roomCollect = io.nsps[namespace].adapter.rooms[room];
+		var roomCollect = io.nsps[namespace].adapter.rooms[room]
+		for (var sock in roomCollect){
+			sock.leave(room)
+		}
+		console.log(Object.keys(room).length)
 		// var rooms = io.sockets.manager.roomClients[socket.id];
   //      for(var room in rooms) {
   //          socket.leave(room);
