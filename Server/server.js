@@ -57,7 +57,12 @@ io.sockets.on("connection", function(socket) {
 		console.log(data1 + "  " + data2)
 
 	});
-	
+	socket.emit("get bus number")
+
+	socket.on('bus number', function(busNum){
+		console.log(busNum)
+
+	});
     
 })
 
