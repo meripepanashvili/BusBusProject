@@ -18,6 +18,7 @@
 		EDE43BB01C2420140001EA9E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE43BAF1C2420140001EA9E /* ChatViewController.swift */; };
 		F2A67CB61C452B2100AF9EDA /* BusNumberChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */; };
 		F2A67CB81C45328300AF9EDA /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A67CB71C45328300AF9EDA /* ServerConnection.swift */; };
+		F2ED24B51C47092C00A73803 /* LocationGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED24B41C47092C00A73803 /* LocationGetter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		EDE43BAF1C2420140001EA9E /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusNumberChecker.swift; sourceTree = "<group>"; };
 		F2A67CB71C45328300AF9EDA /* ServerConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
+		F2ED24B41C47092C00A73803 /* LocationGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationGetter.swift; sourceTree = "<group>"; };
 		F79A1C214E48464978520649 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F816CFE8843953F6290ABE36 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 				ED3187091C21C8A0009799CE /* LaunchScreen.storyboard */,
 				ED31870C1C21C8A0009799CE /* Info.plist */,
 				F2A67CB71C45328300AF9EDA /* ServerConnection.swift */,
+				F2ED24B41C47092C00A73803 /* LocationGetter.swift */,
 			);
 			path = BusBusProject;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				EDE43BB01C2420140001EA9E /* ChatViewController.swift in Sources */,
 				F2A67CB81C45328300AF9EDA /* ServerConnection.swift in Sources */,
 				ED3187011C21C8A0009799CE /* AppDelegate.swift in Sources */,
+				F2ED24B51C47092C00A73803 /* LocationGetter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
