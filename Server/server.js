@@ -76,12 +76,12 @@ io.sockets.on("connection", function(socket) {
 
 	if ( connected == 2 ) {
 		console.log("shemovedit")
-		io.sockets.in(room).emit("partner found");
-		var roster = io.sockets.clients('chatroom1');
+		io.sockets.in(room).emit("partner found")
+		//var roster = io.sockets.clients('chatroom1')
 
-roster.forEach(function(client) {
-    console.log('Username: ' + client.nickname);
-});
+// roster.forEach(function(client) {
+//     console.log('Username: ' + client.nickname)
+// })
 	}
 	socket.on("disconnect", function(){
 		connected = 0
