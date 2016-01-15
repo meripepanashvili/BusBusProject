@@ -78,7 +78,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     }
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-        
+        6
         let scale = newWidth / image.size.width
         let newHeight = image.size.height * scale
         UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))

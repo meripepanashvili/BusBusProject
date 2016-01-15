@@ -14,12 +14,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     
 {
     @IBOutlet weak var connectButton: UIButton!
-    lazy var servCon : ServerConnection = {
-        var serverConnection =   ServerConnection()
-        serverConnection.welcomeDel = self
-        serverConnection.initServerConnection()
-        return serverConnection
-    }()
+    lazy var servCon : ServerConnection = ServerConnection()
     var busFieldGreeting : String = "Enter Bus Number"
     var connectPressed : Bool = false
     var busLocation : CGPoint = CGPoint(x: 0, y: 0)
@@ -42,6 +37,9 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         connectButton.userInteractionEnabled = false
         connectActivity.hidden = true
         connectionStatus.text = ""
+        
+        servCon.welcomeDel = self
+        servCon.initServerConnection()
         // Do any additional setup after loading the view, typically from a nib.
         
     }
