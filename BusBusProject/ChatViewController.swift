@@ -172,7 +172,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
             subView.removeFromSuperview()
         }
         
-        for (var index = 0; index < messageArray.count - 1; index++) {
+        for (var index = 0; index < messageArray.count; index++) {
             if senderArray[index] == person1 {
                 displayMessage(person1, index: index)
             } else {
