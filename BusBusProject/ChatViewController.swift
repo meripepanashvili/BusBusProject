@@ -25,7 +25,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     var person2 : String = "person2"
     
     var senderArray = [String]()
-    var messageArray = [String]()
+    var messageArray = [NSObject]()
     
     var parentView : WelcomeViewController?
     
@@ -55,7 +55,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
             }, completion: { finished in })
     }
     
-    var imageView = UIImageView()
+    var image : UIImage?
     var imagePicker: UIImagePickerController!
     
     @IBAction func takePhoto(sender: UIButton) {
@@ -67,61 +67,52 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        imagePicker.dismissViewControllerAnimated(true, completion: nil)
-        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
-        createBubbleImage( myColor, person: 1)
-        
-        scrollView.contentSize = CGSize(width: 0, height: messageY)
-        let bottomOffset:CGPoint = CGPointMake(0, scrollView.contentSize.height - scrollView.bounds.size.height)
-        scrollView.setContentOffset(bottomOffset, animated: false)
+        image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        imagePicker.dismissViewControllerAnimated(true, completion: { [weak self] in
+            self?.appearPicture( self?.image, person: (self?.person1)!)
+        })
     }
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-        6
         let scale = newWidth / image.size.width
         let newHeight = image.size.height * scale
         UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
         image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
+        UIGraphicsEndImageContext()        
         return newImage
     }
     
-    func createBubbleImage(color : UIColor, person : CGFloat){
+    func createBubbleImage(index : Int, color : UIColor, person : CGFloat){
+        let OffS = CGFloat(20)
         let image : UIImageView = UIImageView()
-        image.image = resizeImage(imageView.image!, newWidth: scrollView.frame.width/2)
+        let im : UIImage = (messageArray[index] as? UIImage)!
+        image.image = resizeImage(im, newWidth: scrollView.frame.width/2)
         image.frame = CGRectMake(0, 0, scrollView.frame.size.width - 80, CGFloat.max)
         image.backgroundColor = color
         image.sizeToFit()
-        image.frame.origin.x = (scrollView.frame.size.width - image.frame.size.width) * person
+        if person == 1 {
+            image.frame.origin.x = (scrollView.frame.size.width - image.frame.size.width) * person - OffS
+        }
+        else {
+            image.frame.origin.x = (scrollView.frame.size.width - image.frame.size.width) * person + OffS/2
+        }
         image.frame.origin.y = messageY
         image.clipsToBounds = true
         
-        messageY += image.frame.size.height + msgDist
         
-        let OffS = CGFloat(10)
-        let frame : UILabel = UILabel()
-        frame.frame.size = CGSizeMake(image.frame.size.width + OffS, image.frame.size.height + OffS)
-        frame.frame.origin = CGPoint(x: (scrollView.frame.size.width - frame.frame.size.width) * person, y: frameY)
-        frame.backgroundColor = color
-        frame.layer.masksToBounds = true
-        frame.layer.cornerRadius = 10
-        scrollView.addSubview(frame)
+        
+        addFrame(OffS, contentFrame: image.frame, person: person)
         scrollView.addSubview(image)
-        
-        frameY += frame.frame.size.height + msgDist - OffS
     }
     
     func createBubbleMsg(index : Int, color : UIColor, person : CGFloat){
         let OffS = CGFloat(20)
         let message : UILabel = UILabel()
         message.frame = CGRectMake(0, 0, scrollView.frame.size.width - 80, CGFloat.max)
-        //message.backgroundColor = color
         message.numberOfLines = 0
         message.textColor = UIColor.blackColor()
-        message.text = messageArray[index]
+        message.text = messageArray[index] as? String
         message.textAlignment = NSTextAlignment.Left
         message.sizeToFit()
         if person == 1 {
@@ -132,32 +123,45 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         }
         message.frame.origin.y = messageY
         
-        messageY += message.frame.size.height + msgDist
-        
-        
+        addFrame(OffS, contentFrame: message.frame, person: person)
+        scrollView.addSubview(message)
+    }
+    
+    func addFrame(OffS : CGFloat, contentFrame : CGRect, person : CGFloat ) {
+        messageY += contentFrame.size.height + msgDist
         let frame : UILabel = UILabel()
-        frame.frame.size = CGSizeMake(message.frame.size.width + OffS, message.frame.size.height + OffS)
+        frame.frame.size = CGSizeMake(contentFrame.size.width + OffS, contentFrame.size.height + OffS)
         if person == 1 {
             frame.frame.origin = CGPoint(x: (scrollView.frame.size.width - frame.frame.size.width ) * person - OffS/2, y: frameY - OffS/2)
         }
         else {
-             frame.frame.origin = CGPoint(x: (scrollView.frame.size.width - frame.frame.size.width ) * person , y: frameY - OffS/2)
+            frame.frame.origin = CGPoint(x: (scrollView.frame.size.width - frame.frame.size.width ) * person , y: frameY - OffS/2)
         }
-        
-        frame.backgroundColor = color
+        if person == 1{
+             frame.backgroundColor = myColor
+        }
+        else{
+            frame.backgroundColor = hisColor
+        }
+       
         frame.layer.masksToBounds = true
         frame.layer.cornerRadius = 10
         scrollView.addSubview(frame)
-        scrollView.addSubview(message)
-        
         frameY += frame.frame.size.height + msgDist - OffS
     }
     
-    func displayMessage(person : String, index : Int) {
+    func displayMessageOrImage(person : String, index : Int) {
+        var pers : CGFloat = 0
+        var color = hisColor
         if person == person1 {
-            createBubbleMsg(index, color: myColor, person : 1)
-        } else {
-            createBubbleMsg(index, color:  hisColor, person: 0)
+            pers = 1
+            color = myColor
+        }
+        if let _ =  messageArray[index] as? String {
+            createBubbleMsg(index, color: color, person : pers)
+        }
+        else if let _ =  messageArray[index] as? UIImage {
+            createBubbleImage(index ,color: color, person: pers)
         }
         scrollView.contentSize = CGSize(width: 0, height: messageY)
         let bottomOffset:CGPoint = CGPointMake(0, scrollView.contentSize.height - scrollView.bounds.size.height)
@@ -174,23 +178,35 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         
         for (var index = 0; index < messageArray.count; index++) {
             if senderArray[index] == person1 {
-                displayMessage(person1, index: index)
+                displayMessageOrImage(person1, index: index)
             } else {
-                displayMessage(person2, index: index)
+                displayMessageOrImage(person2, index: index)
             }
         }
     }
     
-    func send(message : String, person : String) {
+    func appearMessage(message : String, person : String) {
         if message != "" {
             senderArray.append(person)
             messageArray.append(message)
-            displayMessage(person, index: messageArray.count - 1)
+            displayMessageOrImage(person, index: messageArray.count - 1)
         }
     }
     
     func getMessage(message : String) {
-        send(message, person: person2)
+        appearMessage(message, person: person2)
+    }
+    
+    func appearPicture(image : UIImage? ,person : String){
+        if image != nil {
+            senderArray.append(person)
+            messageArray.append(image!)
+            displayMessageOrImage(person, index: messageArray.count - 1)
+        }
+    }
+    
+    func getPicture(){
+        
     }
     
     @IBAction func sendSoundRequest(sender: AnyObject) {
@@ -239,7 +255,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     @IBAction func sendMessage(sender: AnyObject) {
         if let message = messageField.text {
-            send(message, person: person1)
+            appearMessage(message, person: person1)
             connection?.sendText(message)
         }
         messageField.text = ""
@@ -265,7 +281,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let message = textField.text {
-            send(message, person: person1)
+            appearMessage(message, person: person1)
             connection?.sendText(message)
         }
         messageField.text = ""
@@ -310,7 +326,6 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         self.connection?.closeConnection()
         connection = nil
         parentView?.returnBusToOrigin()
-        //print("vxurav fanjaras")
     }
     
     override func willMoveToParentViewController(parent: UIViewController?) {

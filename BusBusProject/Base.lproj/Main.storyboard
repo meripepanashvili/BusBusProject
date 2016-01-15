@@ -140,27 +140,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ftd-LT-mLY">
                                 <rect key="frame" x="20" y="472" width="560" height="128"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBs-lT-O5H">
-                                        <rect key="frame" x="240" y="29" width="80" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="93" id="Gwp-01-8MD"/>
-                                            <constraint firstAttribute="height" constant="84" id="JFw-yv-7cZ"/>
-                                            <constraint firstAttribute="height" constant="70" id="baF-Cz-8dC"/>
-                                            <constraint firstAttribute="width" constant="80" id="iYW-ag-msK"/>
-                                        </constraints>
-                                        <state key="normal" image="camera-icon.png">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Gwp-01-8MD"/>
-                                                <exclude reference="JFw-yv-7cZ"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="takePhoto:" destination="bTa-pS-4cu" eventType="touchUpInside" id="ttI-TX-mww"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYU-uG-XJN">
                                         <rect key="frame" x="8" y="31" width="187" height="70"/>
                                         <constraints>
@@ -196,6 +175,27 @@ Unicode: U+1F3B5 (U+D83C U+DFB5), UTF-8: F0 9F 8E B5</string>
                                         </variation>
                                         <connections>
                                             <action selector="sendSoundRequest:" destination="bTa-pS-4cu" eventType="touchUpInside" id="75J-6T-VRJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBs-lT-O5H">
+                                        <rect key="frame" x="240" y="29" width="80" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="93" id="Gwp-01-8MD"/>
+                                            <constraint firstAttribute="height" constant="84" id="JFw-yv-7cZ"/>
+                                            <constraint firstAttribute="height" constant="70" id="baF-Cz-8dC"/>
+                                            <constraint firstAttribute="width" constant="80" id="iYW-ag-msK"/>
+                                        </constraints>
+                                        <state key="normal" image="camera-icon.png">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Gwp-01-8MD"/>
+                                                <exclude reference="JFw-yv-7cZ"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="bTa-pS-4cu" eventType="touchUpInside" id="ttI-TX-mww"/>
                                         </connections>
                                     </button>
                                 </subviews>
