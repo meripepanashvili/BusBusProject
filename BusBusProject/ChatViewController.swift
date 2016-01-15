@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -189,6 +190,31 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         send(message, person: person2)
     }
     
+    @IBAction func sendSoundRequest(sender: AnyObject) {
+        let alertController = UIAlertController(title: "ხმოვანი სიგნალის შეთავაზება", message: "ხმოვანი სიგნალის შემოთავაზება გაგზავნილია", preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "დახურვა", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func getSoundRequest(){
+        let alertController = UIAlertController(title: "ხმოვანი სიგნალის შემოთავაზება", message: "გინდა შენმა ტელეფონმა ხმა გამოსცეს?", preferredStyle: .Alert)
+        
+        let allow = UIAlertAction(title: "კი", style: .Default, handler: {(alert: UIAlertAction!) in
+            var mySound: SystemSoundID = 0
+            if let soundURL = NSBundle.mainBundle().URLForResource("sound", withExtension: "wav") {
+                AudioServicesCreateSystemSoundID(soundURL, &mySound)
+                AudioServicesPlaySystemSound(mySound);
+            }
+        })
+        alertController.addAction(allow)
+        let dontAllow = UIAlertAction(title: "არა", style: .Default, handler: nil)
+        alertController.addAction(dontAllow)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     func chatFinishedAlert() {
         let alertController = UIAlertController(title: "Disconnect", message: "Chat is diconnected", preferredStyle: .Alert)
         
@@ -213,10 +239,6 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
             connection?.sendText(message)
         }
         messageField.text = ""
-    }
-    
-    func respondOnMakeSound() {
-        
     }
     
     override func viewDidLoad() {

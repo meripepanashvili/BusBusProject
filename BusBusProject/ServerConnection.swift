@@ -12,7 +12,7 @@ import Socket_IO_Client_Swift
 protocol ChatDelegate {
     func getMessage(message : String)
     func chatFinished()
-    func respondOnMakeSound()
+    func getSoundRequest()
     
 }
 
@@ -87,7 +87,7 @@ class ServerConnection: NSObject, LocationDelegate {
         }
         
         self.socket.on("make sound") { [weak self] data in
-            self?.chatDel?.respondOnMakeSound()
+            self?.chatDel?.getSoundRequest()
         }
         
         //        self.socket.on("download picture") { [weak self] data in
@@ -106,7 +106,7 @@ class ServerConnection: NSObject, LocationDelegate {
         
     }
     
-    func askToMakeSound(){
+    func sendSoundRequest(){
         socket.emit("make sound")
     }
     

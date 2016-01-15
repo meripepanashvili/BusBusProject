@@ -20,8 +20,8 @@
 		EDE897201C47CF9900BBDE01 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE8971F1C47CF9900BBDE01 /* CategoriesViewController.swift */; };
 		EDE897221C47CFE000BBDE01 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE897211C47CFE000BBDE01 /* TransitionManager.swift */; };
 		EDE897241C47D46C00BBDE01 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE897231C47D46C00BBDE01 /* QuotesViewController.swift */; };
+		EDF292D71C48673E00719550 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDF292D61C48673E00719550 /* sound.wav */; settings = {ASSET_TAGS = (); }; };
 		F2639EF01C4803F600BB73BD /* busbusPic.png in Resources */ = {isa = PBXBuildFile; fileRef = F2639EEF1C4803F600BB73BD /* busbusPic.png */; };
-		F2639EF21C4836A400BB73BD /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = F2639EF11C4836A400BB73BD /* chat.png */; };
 		F2A67CB61C452B2100AF9EDA /* BusNumberChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */; };
 		F2A67CB81C45328300AF9EDA /* ServerConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A67CB71C45328300AF9EDA /* ServerConnection.swift */; };
 		F2ED24B51C47092C00A73803 /* LocationGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ED24B41C47092C00A73803 /* LocationGetter.swift */; };
@@ -64,8 +64,8 @@
 		EDE8971F1C47CF9900BBDE01 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		EDE897211C47CFE000BBDE01 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		EDE897231C47D46C00BBDE01 /* QuotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
+		EDF292D61C48673E00719550 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
 		F2639EEF1C4803F600BB73BD /* busbusPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = busbusPic.png; sourceTree = "<group>"; };
-		F2639EF11C4836A400BB73BD /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
 		F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusNumberChecker.swift; sourceTree = "<group>"; };
 		F2A67CB71C45328300AF9EDA /* ServerConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConnection.swift; sourceTree = "<group>"; };
 		F2ED24B41C47092C00A73803 /* LocationGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationGetter.swift; sourceTree = "<group>"; };
@@ -141,6 +141,7 @@
 		ED3186FF1C21C8A0009799CE /* BusBusProject */ = {
 			isa = PBXGroup;
 			children = (
+				EDF292D51C48673E00719550 /* sounds */,
 				EDE163391C47317000A68D6B /* images */,
 				F2A67CB51C452B2100AF9EDA /* BusNumberChecker.swift */,
 				ED3187001C21C8A0009799CE /* AppDelegate.swift */,
@@ -180,12 +181,19 @@
 		EDE163391C47317000A68D6B /* images */ = {
 			isa = PBXGroup;
 			children = (
-				F2639EF11C4836A400BB73BD /* chat.png */,
 				F2639EEF1C4803F600BB73BD /* busbusPic.png */,
 				EDE1633C1C47497D00A68D6B /* camera-icon.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
+		};
+		EDF292D51C48673E00719550 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				EDF292D61C48673E00719550 /* sound.wav */,
+			);
+			path = sounds;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -296,10 +304,10 @@
 			files = (
 				F2639EF01C4803F600BB73BD /* busbusPic.png in Resources */,
 				ED31870B1C21C8A0009799CE /* LaunchScreen.storyboard in Resources */,
+				EDF292D71C48673E00719550 /* sound.wav in Resources */,
 				ED3187081C21C8A0009799CE /* Assets.xcassets in Resources */,
 				EDE1633D1C47497D00A68D6B /* camera-icon.png in Resources */,
 				ED3187061C21C8A0009799CE /* Main.storyboard in Resources */,
-				F2639EF21C4836A400BB73BD /* chat.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
