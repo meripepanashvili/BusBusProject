@@ -29,6 +29,9 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     var parentView : WelcomeViewController?
     
+    var myColor =  UIColor(red:26/255, green: 154/255, blue: 243/255, alpha: 0.3)
+    var hisColor =  UIColor(red:26/255, green: 154/255, blue: 243/255, alpha: 0.5)
+    
     @IBOutlet weak var chatView: UIView!
     @IBOutlet weak var popUpView: UIView!
     var presenting = false
@@ -67,7 +70,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-        createBubbleImage(UIColor.yellowColor(), person: 1)
+        createBubbleImage( myColor, person: 1)
         
         scrollView.contentSize = CGSize(width: 0, height: messageY)
         let bottomOffset:CGPoint = CGPointMake(0, scrollView.contentSize.height - scrollView.bounds.size.height)
@@ -141,7 +144,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
              frame.frame.origin = CGPoint(x: (scrollView.frame.size.width - frame.frame.size.width ) * person , y: frameY - OffS/2)
         }
         
-        frame.backgroundColor = UIColor(red:26/255, green: 154/255, blue: 243/255, alpha: 0.7)
+        frame.backgroundColor = color
         frame.layer.masksToBounds = true
         frame.layer.cornerRadius = 10
         scrollView.addSubview(frame)
@@ -152,9 +155,9 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     func displayMessage(person : String, index : Int) {
         if person == person1 {
-            createBubbleMsg(index, color: UIColor.yellowColor(), person : 1)
+            createBubbleMsg(index, color: myColor, person : 1)
         } else {
-            createBubbleMsg(index, color: UIColor.groupTableViewBackgroundColor(), person: 0)
+            createBubbleMsg(index, color:  hisColor, person: 0)
         }
         scrollView.contentSize = CGSize(width: 0, height: messageY)
         let bottomOffset:CGPoint = CGPointMake(0, scrollView.contentSize.height - scrollView.bounds.size.height)
