@@ -191,6 +191,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     }
     
     @IBAction func sendSoundRequest(sender: AnyObject) {
+        connection?.sendSoundRequest()
         let alertController = UIAlertController(title: "ხმოვანი სიგნალის შეთავაზება", message: "ხმოვანი სიგნალის შემოთავაზება გაგზავნილია", preferredStyle: .Alert)
         
         let defaultAction = UIAlertAction(title: "დახურვა", style: .Default, handler: nil)
