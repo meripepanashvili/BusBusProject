@@ -33,6 +33,14 @@ io.sockets.on("connection", function(socket) {
 			socket2.emit("partner text" ,msg)
 		})
 
+		socket1.on("make sound", function(){
+			socket2.emit("make sound")
+		})
+
+		socket2.on("make sound", function(){
+			socket1.emit("make sound")
+		})
+
 		socket1.on('disconnect', function() {
 			socket1 = 0
     		if( socket2 != 0 ){		
