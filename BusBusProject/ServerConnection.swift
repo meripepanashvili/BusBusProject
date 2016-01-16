@@ -13,7 +13,7 @@ protocol ChatDelegate {
     func getMessage(message : String)
     func chatFinished()
     func getSoundRequest()
-    
+    func getPicture(image : UIImage?)
 }
 
 protocol WelcomePageDelegate {
@@ -27,6 +27,7 @@ class ServerConnection: NSObject, LocationDelegate {
     var chatDel : ChatDelegate?
     var welcomeDel: WelcomePageDelegate?
     var location = LocationGetter()
+    let compression : CGFloat = 0.2
     
     func initServerConnection(){
         self.addHandlers()
@@ -90,21 +91,32 @@ class ServerConnection: NSObject, LocationDelegate {
             self?.chatDel?.getSoundRequest()
         }
         
-        //        self.socket.on("download picture") { [weak self] data in
-        //            //
-        //
-        //        }
-        //
-        //        self.socket.on("coordinates"){ [weak self] data in
-        //            //send coordinates
-        //        }
-        //
-        //        self.socket.on("test"){ [weak self] data in
-        //            print("agervar")
-        //            return
-        //        }
+        self.socket.on("download picture") {[weak self] data, ack in
+            print("hari haraaaleee")
+            let imageEncode = data[0] as! String
+            let imageData = NSData(base64EncodedString: imageEncode, options: NSDataBase64DecodingOptions(rawValue: 0))
+            let image = UIImage(data: imageData!)
+            self?.chatDel?.getPicture(image)
+        }
         
     }
+    
+    func sendPicture(image : UIImage?){
+        print("serverze send picture garet")
+        if let im = image {
+            
+            print("serverze send picture pirveli if")
+            if let imageData = UIImageJPEGRepresentation(im, compression)  {
+                print("pictureeeee")
+                let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+                socket.emit("send picture", base64String)
+            }
+            
+        }
+        
+        
+    }
+    
     
     func sendSoundRequest(){
         socket.emit("make sound")

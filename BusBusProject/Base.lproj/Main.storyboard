@@ -219,8 +219,8 @@ Unicode: U+1F3B5 (U+D83C U+DFB5), UTF-8: F0 9F 8E B5</string>
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pBr-UY-Nxf">
-                                <rect key="frame" x="40" y="-120" width="560" height="536"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBr-UY-Nxf">
+                                <rect key="frame" x="20" y="64" width="560" height="536"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRm-2T-1F6">
                                         <rect key="frame" x="38" y="498" width="474" height="30"/>

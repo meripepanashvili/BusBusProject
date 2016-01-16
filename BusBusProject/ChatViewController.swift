@@ -69,7 +69,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         image = info[UIImagePickerControllerOriginalImage] as? UIImage
         imagePicker.dismissViewControllerAnimated(true, completion: { [weak self] in
-            self?.appearPicture( self?.image, person: (self?.person1)!)
+            self?.sendPicture( self?.image, person: (self?.person1)!)
         })
     }
     
@@ -79,7 +79,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
         image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()        
+        UIGraphicsEndImageContext()
         return newImage
     }
     
@@ -205,8 +205,15 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         }
     }
     
-    func getPicture(){
-        
+    func sendPicture(image : UIImage? ,person : String){
+        connection?.sendPicture(image )
+        appearPicture(image, person: person)
+     //   connection?.sendPicture(UIImage(named: "busbusPic.png")! )
+       // appearPicture(UIImage(named: "busbusPic.png")!, person: person)
+    }
+    
+    func getPicture(image : UIImage?){
+        appearPicture(image, person: person2)
     }
     
     @IBAction func sendSoundRequest(sender: AnyObject) {
@@ -246,6 +253,8 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         presentViewController(alertController, animated: true, completion: nil)
     }
     
+    
+    
     func chatFinished() {
         chatFinishedAlert()
         connection?.chatDel = nil
@@ -263,6 +272,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self.parentViewController)
         scrollView.contentSize = CGSize(width: 0, height: 0)
         messageField.delegate = self
         
@@ -277,6 +287,8 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         if quote != "" {
             messageField.text = quote
         }
+        
+        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -321,15 +333,22 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     @IBAction func unwindToViewController (sender: UIStoryboardSegue){
         self.dismissViewControllerAnimated(true, completion: nil)
     }
- 
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("krrrrrrr")
+    }
+
+    
+    
     override func viewWillDisappear(animated: Bool) {
-        self.connection?.closeConnection()
-        connection = nil
-        parentView?.returnBusToOrigin()
+        super.viewWillDisappear(true)
+            print("zzzzz")
+            self.connection?.closeConnection()
+            connection = nil
+            parentView?.returnBusToOrigin()
     }
     
     override func willMoveToParentViewController(parent: UIViewController?) {
-        
     }
     
 }
