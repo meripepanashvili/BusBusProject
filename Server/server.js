@@ -14,7 +14,10 @@ io.sockets.on("connection", function(socket) {
 	if (  socket1 == 0  ){
 		console.log(" socket1 shemovida")
 		socket1 = socket
-		//socket1.emit("partner text", "alala")
+		socket1.on('disconnect', function(){
+			socket1 = 0
+			console.log("davkete euli soketi")
+		});
 	}
 	else if( socket2 == 0 ){
 		socket2 = socket
@@ -31,6 +34,14 @@ io.sockets.on("connection", function(socket) {
 		})
 		socket1.on("chat", function(msg){
 			socket2.emit("partner text" ,msg)
+		})
+
+		socket1.on("send picture", function(pictureString){
+			socket2.emit("download picture", pictureString)
+		})
+
+		socket2.on("send picture", function(pictureString){
+			socket1.emit("download picture", pictureString)
 		})
 
 		socket1.on("make sound", function(){
