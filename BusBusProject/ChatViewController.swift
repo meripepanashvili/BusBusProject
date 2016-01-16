@@ -29,8 +29,8 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     var parentView : WelcomeViewController?
     
-    var myColor =  UIColor(red:26/255, green: 154/255, blue: 243/255, alpha: 0.3)
-    var hisColor =  UIColor(red:26/255, green: 154/255, blue: 243/255, alpha: 0.5)
+    var myColor =  UIColor(hex: "#d6d6c2")!//UIColor(red:26/255, green: 154/255, blue: 243/255, alpha: 0.3)
+    var hisColor =  UIColor(hex: "#ff9900")!
     
     @IBOutlet weak var chatView: UIView!
     @IBOutlet weak var popUpView: UIView!
@@ -348,4 +348,32 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     override func willMoveToParentViewController(parent: UIViewController?) {
     }
     
+}
+
+
+extension UIColor {
+    public convenience init?(hex: String) {
+        var cString : String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
+        
+        if (cString.hasPrefix("#")) {
+            cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+        }
+        
+        if (cString.characters.count != 6) {
+            return nil
+        }
+        
+        let rString = cString.substringToIndex(cString.startIndex.advancedBy(2))
+        let tempG = cString.substringFromIndex(cString.startIndex.advancedBy(2) )
+        let gString = tempG.substringToIndex(tempG.startIndex.advancedBy(2))
+        let tempB = cString.substringFromIndex(cString.startIndex.advancedBy(4) )
+        let bString = tempB.substringToIndex(tempB.startIndex.advancedBy(2))
+        
+        var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0;
+        NSScanner(string: rString).scanHexInt(&r)
+        NSScanner(string: gString).scanHexInt(&g)
+        NSScanner(string: bString).scanHexInt(&b)
+        self.init(red: CGFloat(r)/CGFloat(255.0), green: CGFloat(g) / CGFloat(255.0), blue: CGFloat(b) / CGFloat(255.0), alpha: CGFloat(1))
+        return
+    }
 }

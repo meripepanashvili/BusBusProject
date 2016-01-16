@@ -86,7 +86,7 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.1713390462826177" green="0.31802580700093042" blue="0.21844479385071333" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.17254901960784313" green="0.31764705882352939" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Pei-mF-L4r" firstAttribute="centerX" secondItem="yue-Ig-52a" secondAttribute="centerX" id="17O-Im-RcA"/>
@@ -225,12 +225,12 @@ Unicode: U+1F3B5 (U+D83C U+DFB5), UTF-8: F0 9F 8E B5</string>
                                 <rect key="frame" x="20" y="64" width="560" height="536"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRm-2T-1F6">
-                                        <rect key="frame" x="38" y="498" width="474" height="30"/>
+                                        <rect key="frame" x="38" y="473" width="474" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rh7-fi-89N">
-                                        <rect key="frame" x="526" y="498" width="34" height="30"/>
+                                        <rect key="frame" x="526" y="473" width="34" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="34" id="O7o-sp-LXu"/>
                                         </constraints>
@@ -239,35 +239,40 @@ Unicode: U+1F3B5 (U+D83C U+DFB5), UTF-8: F0 9F 8E B5</string>
                                             <action selector="sendMessage:" destination="bTa-pS-4cu" eventType="touchUpInside" id="bn6-HB-Wze"/>
                                         </connections>
                                     </button>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x5-or-gL3">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="465"/>
+                                    </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfY-Gx-M4s">
-                                        <rect key="frame" x="0.0" y="498" width="30" height="30"/>
+                                        <rect key="frame" x="-109" y="455" width="249" height="91"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="4v0-sd-Qak"/>
+                                            <constraint firstAttribute="width" constant="249" id="4v0-sd-Qak"/>
                                         </constraints>
-                                        <state key="normal" title="--"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal">
+                                            <string key="title">✭
+OUTLINED BLACK STAR
+Unicode: U+272D, UTF-8: E2 9C AD</string>
+                                        </state>
                                         <connections>
                                             <action selector="popUp:" destination="bTa-pS-4cu" eventType="touchUpInside" id="GqJ-O6-mJM"/>
                                         </connections>
                                     </button>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x5-or-gL3">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="490"/>
-                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="7x5-or-gL3" firstAttribute="top" secondItem="pBr-UY-Nxf" secondAttribute="top" id="7Uh-Pl-gPB"/>
-                                    <constraint firstAttribute="bottom" secondItem="TfY-Gx-M4s" secondAttribute="bottom" constant="8" id="9Ne-L6-TMi"/>
+                                    <constraint firstAttribute="bottom" secondItem="TfY-Gx-M4s" secondAttribute="bottom" constant="-10" id="9Ne-L6-TMi"/>
                                     <constraint firstItem="7x5-or-gL3" firstAttribute="leading" secondItem="pBr-UY-Nxf" secondAttribute="leading" id="FkH-dK-TYi"/>
                                     <constraint firstAttribute="trailing" secondItem="7x5-or-gL3" secondAttribute="trailing" id="ISl-hz-96Z"/>
                                     <constraint firstAttribute="bottom" secondItem="bRm-2T-1F6" secondAttribute="bottom" constant="8" id="LZs-BK-9Cs"/>
                                     <constraint firstItem="rh7-fi-89N" firstAttribute="top" secondItem="7x5-or-gL3" secondAttribute="bottom" constant="8" id="T7s-Oy-ojj"/>
                                     <constraint firstAttribute="bottom" secondItem="rh7-fi-89N" secondAttribute="bottom" constant="8" id="Xto-aH-Z73"/>
                                     <constraint firstAttribute="trailing" secondItem="rh7-fi-89N" secondAttribute="trailing" id="aLN-VT-iXa"/>
-                                    <constraint firstItem="TfY-Gx-M4s" firstAttribute="leading" secondItem="pBr-UY-Nxf" secondAttribute="leading" id="cJx-1t-C2S"/>
+                                    <constraint firstItem="TfY-Gx-M4s" firstAttribute="leading" secondItem="pBr-UY-Nxf" secondAttribute="leading" constant="-109" id="cJx-1t-C2S"/>
                                     <constraint firstItem="bRm-2T-1F6" firstAttribute="top" secondItem="7x5-or-gL3" secondAttribute="bottom" constant="8" id="gOp-nE-4LS"/>
                                     <constraint firstItem="rh7-fi-89N" firstAttribute="leading" secondItem="bRm-2T-1F6" secondAttribute="trailing" constant="14" id="nCe-l0-Szu"/>
-                                    <constraint firstItem="TfY-Gx-M4s" firstAttribute="top" secondItem="7x5-or-gL3" secondAttribute="bottom" constant="8" id="pFj-Hw-7px"/>
-                                    <constraint firstItem="bRm-2T-1F6" firstAttribute="leading" secondItem="TfY-Gx-M4s" secondAttribute="trailing" constant="8" id="ugt-8x-O7y"/>
+                                    <constraint firstItem="TfY-Gx-M4s" firstAttribute="top" secondItem="7x5-or-gL3" secondAttribute="bottom" constant="-10" id="pFj-Hw-7px"/>
+                                    <constraint firstItem="bRm-2T-1F6" firstAttribute="leading" secondItem="TfY-Gx-M4s" secondAttribute="trailing" constant="-102" id="ugt-8x-O7y"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -467,7 +472,7 @@ Unicode: U+1F3B5 (U+D83C U+DFB5), UTF-8: F0 9F 8E B5</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2eh-PH-0hk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.073353161428774669" green="0.27801665846522661" blue="0.33814709595959591" alpha="0.76000000000000001" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="0.34000000000000002" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
