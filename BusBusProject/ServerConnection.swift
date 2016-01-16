@@ -73,12 +73,6 @@ class ServerConnection: NSObject, LocationDelegate {
             print("disconnectshi movedi")
         }
         
-        //        self.socket.on("partner disconnect"){ [weak self] data in
-        //            self?.chatDel?.chatFinished()
-        //            self?.socket.disconnect()
-        //            print("disconnectshi movedi")
-        //            return
-        //        }
         
         self.socket.on("get bus number"){ [weak self] data in
             if let busNum = self?.welcomeDel?.getBusNumber() {
@@ -92,7 +86,6 @@ class ServerConnection: NSObject, LocationDelegate {
         }
         
         self.socket.on("download picture") {[weak self] data, ack in
-            print("hari haraaaleee")
             let imageEncode = data[0] as! String
             let imageData = NSData(base64EncodedString: imageEncode, options: NSDataBase64DecodingOptions(rawValue: 0))
             let image = UIImage(data: imageData!)
@@ -102,18 +95,13 @@ class ServerConnection: NSObject, LocationDelegate {
     }
     
     func sendPicture(image : UIImage?){
-        print("serverze send picture garet")
         if let im = image {
-            
-            print("serverze send picture pirveli if")
             if let imageData = UIImageJPEGRepresentation(im, compression)  {
-                print("pictureeeee")
                 let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
                 socket.emit("send picture", base64String)
             }
             
         }
-        
         
     }
     

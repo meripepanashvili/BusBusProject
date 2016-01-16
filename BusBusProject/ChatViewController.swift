@@ -272,7 +272,6 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.parentViewController)
         scrollView.contentSize = CGSize(width: 0, height: 0)
         messageField.delegate = self
         
@@ -334,18 +333,16 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("krrrrrrr")
-    }
-
     
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
-            print("zzzzz")
+        if self.navigationController!.viewControllers.indexOf(self) == nil  {
             self.connection?.closeConnection()
             connection = nil
-            parentView?.returnBusToOrigin()
+             parentView?.returnBusToOrigin()
+        }
+        
     }
     
     override func willMoveToParentViewController(parent: UIViewController?) {
