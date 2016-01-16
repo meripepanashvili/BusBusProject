@@ -29,6 +29,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dIa-Kz-hem">
+                                <rect key="frame" x="290" y="345" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Oz3-r9-2z8"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pei-mF-L4r">
                                 <rect key="frame" x="279" y="545" width="42" height="21"/>
                                 <constraints>
@@ -48,9 +55,19 @@
                                     <action selector="connectPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="20T-e4-N7c"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmQ-tt-oD8">
+                                <rect key="frame" x="20" y="205" width="129" height="155"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.10006126016378403" green="0.57242130919506673" blue="0.87440687417984009" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.064298930921052308" green="0.58997224506578949" blue="0.86675061677631504" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bTa-pS-4cu" kind="show" id="mnD-jq-SrX"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="700" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OJJ-x9-Lrk">
                                 <rect key="frame" x="135" y="150" width="330" height="40"/>
-                                <color key="backgroundColor" red="0.9090317234848484" green="0.9090317234848484" blue="0.9090317234848484" alpha="0.54000000000000004" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4FL-Hc-BEa"/>
                                     <constraint firstAttribute="width" secondItem="OJJ-x9-Lrk" secondAttribute="height" multiplier="38:5" id="izU-G7-Pyn"/>
@@ -68,23 +85,6 @@
                                     <action selector="busIntexBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="X5x-nb-Xg7"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmQ-tt-oD8">
-                                <rect key="frame" x="20" y="205" width="129" height="155"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.10006126016378403" green="0.57242130919506673" blue="0.87440687417984009" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.064298930921052308" green="0.58997224506578949" blue="0.86675061677631504" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="bTa-pS-4cu" kind="show" id="mnD-jq-SrX"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dIa-Kz-hem">
-                                <rect key="frame" x="290" y="345" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="Oz3-r9-2z8"/>
-                                </constraints>
-                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.1713390462826177" green="0.31802580700093042" blue="0.21844479385071333" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -467,7 +467,7 @@ Unicode: U+1F3B5 (U+D83C U+DFB5), UTF-8: F0 9F 8E B5</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2eh-PH-0hk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.97476720328282829" green="0.97476720328282829" blue="0.97476720328282829" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.073353161428774669" green="0.27801665846522661" blue="0.33814709595959591" alpha="0.76000000000000001" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
