@@ -26,22 +26,16 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="cAB-Q6-2mC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.13811947601010099" green="0.1203389537854289" blue="0.0085412720998282662" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dIa-Kz-hem">
-                                <rect key="frame" x="290" y="494" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="Oz3-r9-2z8"/>
-                                </constraints>
-                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pei-mF-L4r">
                                 <rect key="frame" x="279" y="567" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="UX5-b8-L8P"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.52144491792929293" green="0.52144491792929293" blue="0.52144491792929293" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.97476720328282829" green="0.97476720328282829" blue="0.97476720328282829" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yue-Ig-52a">
@@ -56,11 +50,12 @@
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="700" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OJJ-x9-Lrk">
                                 <rect key="frame" x="135" y="150" width="330" height="40"/>
-                                <color key="backgroundColor" red="0.9090317234848484" green="0.9090317234848484" blue="0.9090317234848484" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.9090317234848484" green="0.9090317234848484" blue="0.9090317234848484" alpha="0.54000000000000004" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4FL-Hc-BEa"/>
                                     <constraint firstAttribute="width" secondItem="OJJ-x9-Lrk" secondAttribute="height" multiplier="38:5" id="izU-G7-Pyn"/>
                                 </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
@@ -83,8 +78,15 @@
                                     <segue destination="bTa-pS-4cu" kind="show" id="mnD-jq-SrX"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dIa-Kz-hem">
+                                <rect key="frame" x="290" y="494" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Oz3-r9-2z8"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1713390462826177" green="0.31802580700093042" blue="0.21844479385071333" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Pei-mF-L4r" firstAttribute="centerX" secondItem="yue-Ig-52a" secondAttribute="centerX" id="17O-Im-RcA"/>
@@ -465,6 +467,7 @@ Unicode: U+1F3B5 (U+D83C U+DFB5), UTF-8: F0 9F 8E B5</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2eh-PH-0hk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.97476720328282829" green="0.97476720328282829" blue="0.97476720328282829" alpha="0.23999999999999999" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
