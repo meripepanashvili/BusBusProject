@@ -26,7 +26,6 @@ class LocationGetter: NSObject, CLLocationManagerDelegate {
             self.manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
             enabled = true
         }
-        print("init location")
     }
     
     func getLocation() -> String?{

@@ -10,11 +10,11 @@ import UIKit
 
 
 class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberCheckerDelegate, UIAlertViewDelegate,
-    WelcomePageDelegate
+    WelcomePageDelegate, UIApplicationDelegate
     
 {
     @IBOutlet weak var connectButton: UIButton!
-    lazy var servCon : ServerConnection = ServerConnection()
+    var servCon : ServerConnection? //= ServerConnection()
     var busFieldGreeting : String = "Enter Bus Number"
     var connectPressed : Bool = false
     var busLocation : CGPoint = CGPoint(x: 0, y: 0)
@@ -37,9 +37,10 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
         connectButton.userInteractionEnabled = false
         connectActivity.hidden = true
         connectionStatus.text = ""
-        
-        servCon.welcomeDel = self
-        servCon.initServerConnection()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        servCon = appDelegate.servCon
+        servCon?.welcomeDel = self
+        servCon?.initServerConnection()
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -109,10 +110,12 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
     
     @IBAction func connectPressed(sender: UIButton) {
         if !connectPressed {
-            servCon.startConnection()
-            connectPressed = true
-            print("vcdilob daconnectebas")
-            showLoading()
+            if let connection = servCon {
+                connection.startConnection()
+                connectPressed = true
+                print("vcdilob daconnectebas")
+                showLoading()
+            }
         }
     }
     
@@ -135,7 +138,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
             if let id = segue.identifier where id == "chatStart" {
                 
                 dvc.connection = servCon
-                servCon.chatDel = dvc
+                servCon?.chatDel = dvc
                 connectPressed = false
                 dvc.parentView = self
             }
@@ -160,6 +163,18 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
             })
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        if self.navigationController!.viewControllers.indexOf(self) == nil  {
+            self.servCon?.closeConnection()
+            servCon = nil
+        }
+        
+    }    
+    
+    func applicationWillTerminate(application: UIApplication) {
+         self.servCon?.closeConnection()
+    }
     
     @IBAction func didTapView(sender: UITapGestureRecognizer?) {
         view.endEditing(true)

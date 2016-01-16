@@ -345,8 +345,8 @@ class ChatViewController: UIViewController, UITextFieldDelegate, ChatDelegate, U
         
     }
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-    }
+     
+    
     
 }
 
