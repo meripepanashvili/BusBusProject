@@ -18,7 +18,7 @@ class QuotesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var category : String = ""
     var quotes = [String : [String]]()
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -32,7 +32,7 @@ class QuotesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView?.dataSource = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -43,11 +43,12 @@ class QuotesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Quote", forIndexPath: indexPath)
-
+        
         var quotes = [String]()
         quotes = self.quotes[category]!
         let quote = quotes[indexPath.row]
         cell.textLabel?.text = quote
+        cell.backgroundColor = UIColor.clearColor()
         
         return cell
     }
@@ -61,5 +62,5 @@ class QuotesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-
+    
 }
