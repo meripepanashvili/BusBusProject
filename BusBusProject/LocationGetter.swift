@@ -32,7 +32,6 @@ class LocationGetter: NSObject, CLLocationManagerDelegate {
         if enabled {
             yetNotFound = true
             self.manager.startUpdatingLocation()
-            print("enabled location")
             return nil
         }
         else {

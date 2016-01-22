@@ -113,7 +113,6 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate, BusNumberChe
             if let connection = servCon {
                 connection.startConnection()
                 connectPressed = true
-                print("vcdilob daconnectebas")
                 showLoading()
             }
         }

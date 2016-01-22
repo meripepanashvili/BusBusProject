@@ -54,7 +54,6 @@ class ServerConnection: NSObject, LocationDelegate {
         }
         
         self.socket.on("partner found"){ [weak self] data in
-            print("gipove kavshiri")
             self?.welcomeDel?.partnerFound()
             return
         }
@@ -70,7 +69,6 @@ class ServerConnection: NSObject, LocationDelegate {
         self.socket.on("disconnect"){ [weak self] data in
             self?.chatDel?.chatFinished()
             self?.chatDel = nil
-            print("disconnectshi movedi")
         }
         
         
@@ -113,7 +111,6 @@ class ServerConnection: NSObject, LocationDelegate {
     func closeConnection(){
         chatDel = nil
         socket.disconnect()
-        print("socketebshi davkete socketi")
     }
     
     func sendText(message : String){

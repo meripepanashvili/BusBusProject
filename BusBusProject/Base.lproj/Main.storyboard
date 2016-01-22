@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SGC-fB-YC4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SGC-fB-YC4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -77,16 +77,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="connectPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="20T-e4-N7c"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmQ-tt-oD8">
-                                <rect key="frame" x="20" y="205" width="129" height="155"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.10006126016378403" green="0.57242130919506673" blue="0.87440687417984009" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.064298930921052308" green="0.58997224506578949" blue="0.86675061677631504" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="bTa-pS-4cu" kind="show" id="mnD-jq-SrX"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="700" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OJJ-x9-Lrk">
@@ -273,9 +263,9 @@ Unicode: U+1F3B5 (U+D83C U+DFB5), UTF-8: F0 9F 8E B5</string>
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="465"/>
                                     </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfY-Gx-M4s">
-                                        <rect key="frame" x="-109" y="455" width="249" height="91"/>
+                                        <rect key="frame" x="0.0" y="455" width="38" height="91"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="249" id="4v0-sd-Qak"/>
+                                            <constraint firstAttribute="width" constant="38" id="4v0-sd-Qak"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal">
@@ -298,11 +288,11 @@ Unicode: U+272D, UTF-8: E2 9C AD</string>
                                     <constraint firstItem="rh7-fi-89N" firstAttribute="top" secondItem="7x5-or-gL3" secondAttribute="bottom" constant="8" id="T7s-Oy-ojj"/>
                                     <constraint firstAttribute="bottom" secondItem="rh7-fi-89N" secondAttribute="bottom" constant="8" id="Xto-aH-Z73"/>
                                     <constraint firstAttribute="trailing" secondItem="rh7-fi-89N" secondAttribute="trailing" id="aLN-VT-iXa"/>
-                                    <constraint firstItem="TfY-Gx-M4s" firstAttribute="leading" secondItem="pBr-UY-Nxf" secondAttribute="leading" constant="-109" id="cJx-1t-C2S"/>
+                                    <constraint firstItem="TfY-Gx-M4s" firstAttribute="leading" secondItem="pBr-UY-Nxf" secondAttribute="leading" id="cJx-1t-C2S"/>
                                     <constraint firstItem="bRm-2T-1F6" firstAttribute="top" secondItem="7x5-or-gL3" secondAttribute="bottom" constant="8" id="gOp-nE-4LS"/>
                                     <constraint firstItem="rh7-fi-89N" firstAttribute="leading" secondItem="bRm-2T-1F6" secondAttribute="trailing" constant="14" id="nCe-l0-Szu"/>
                                     <constraint firstItem="TfY-Gx-M4s" firstAttribute="top" secondItem="7x5-or-gL3" secondAttribute="bottom" constant="-10" id="pFj-Hw-7px"/>
-                                    <constraint firstItem="bRm-2T-1F6" firstAttribute="leading" secondItem="TfY-Gx-M4s" secondAttribute="trailing" constant="-102" id="ugt-8x-O7y"/>
+                                    <constraint firstItem="bRm-2T-1F6" firstAttribute="leading" secondItem="TfY-Gx-M4s" secondAttribute="trailing" id="ugt-8x-O7y"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -363,7 +353,7 @@ Unicode: U+272D, UTF-8: E2 9C AD</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGX-nm-8qV">
-                                <rect key="frame" x="255" y="323" width="91" height="30"/>
+                                <rect key="frame" x="276" y="323" width="49" height="30"/>
                                 <state key="normal" title="ხოტბა">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -380,15 +370,6 @@ Unicode: U+272D, UTF-8: E2 9C AD</string>
                                     <action selector="cooseCategory:" destination="nDQ-Dm-wqi" eventType="touchUpInside" id="XzN-v0-8wu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZ7-Z2-YrX">
-                                <rect key="frame" x="265" y="550" width="70" height="30"/>
-                                <state key="normal" title="დახურვა">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="LFR-eA-HH5" kind="unwind" identifier="backToChat" unwindAction="unwindToViewController:" id="Jmo-y6-NS9"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzO-5y-Kjo">
                                 <rect key="frame" x="260" y="209" width="81" height="30"/>
                                 <state key="normal" title="მისალმება">
@@ -396,6 +377,15 @@ Unicode: U+272D, UTF-8: E2 9C AD</string>
                                 </state>
                                 <connections>
                                     <action selector="cooseCategory:" destination="nDQ-Dm-wqi" eventType="touchUpInside" id="eWm-Bs-PYF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZ7-Z2-YrX">
+                                <rect key="frame" x="265" y="550" width="70" height="30"/>
+                                <state key="normal" title="დახურვა">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LFR-eA-HH5" kind="unwind" identifier="backToChat" unwindAction="unwindToViewController:" id="Jmo-y6-NS9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -518,7 +508,4 @@ Unicode: U+272D, UTF-8: E2 9C AD</string>
         <image name="busbusPic.png" width="512" height="375"/>
         <image name="camera-icon.png" width="256" height="256"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="tai-zX-BRh"/>
-    </inferredMetricsTieBreakers>
 </document>
