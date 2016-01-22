@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SGC-fB-YC4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SGC-fB-YC4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -28,6 +28,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="279" y="213" width="42" height="21"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="379" y="213" width="42" height="21"/>
+                                </variation>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dIa-Kz-hem">
                                 <rect key="frame" x="290" y="345" width="20" height="20"/>
@@ -35,6 +41,12 @@
                                     <constraint firstAttribute="height" constant="20" id="Oz3-r9-2z8"/>
                                 </constraints>
                                 <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="290" y="497" width="20" height="20"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="390" y="497" width="20" height="20"/>
+                                </variation>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pei-mF-L4r">
                                 <rect key="frame" x="279" y="545" width="42" height="21"/>
@@ -44,6 +56,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.97476720328282829" green="0.97476720328282829" blue="0.97476720328282829" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="279" y="697" width="42" height="21"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="379" y="697" width="42" height="21"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yue-Ig-52a">
                                 <rect key="frame" x="232" y="225" width="136" height="100"/>
@@ -51,6 +69,12 @@
                                     <constraint firstAttribute="width" secondItem="yue-Ig-52a" secondAttribute="height" multiplier="1.365:1" id="tPu-gK-ULX"/>
                                 </constraints>
                                 <state key="normal" title="Connect" image="busbusPic.png"/>
+                                <variation key="heightClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="209" y="344" width="182" height="133"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="309" y="344" width="182" height="133"/>
+                                </variation>
                                 <connections>
                                     <action selector="connectPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="20T-e4-N7c"/>
                                 </connections>
@@ -79,6 +103,12 @@
                                     <mask key="constraints">
                                         <exclude reference="izU-G7-Pyn"/>
                                     </mask>
+                                </variation>
+                                <variation key="heightClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="135" y="269" width="330" height="40"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="180" y="269" width="440" height="40"/>
                                 </variation>
                                 <connections>
                                     <action selector="busIndexFinish:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="Yv4-vo-mWM"/>
@@ -334,7 +364,7 @@ Unicode: U+272D, UTF-8: E2 9C AD</string>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGX-nm-8qV">
                                 <rect key="frame" x="255" y="323" width="91" height="30"/>
-                                <state key="normal" title="კიდე რაღაც">
+                                <state key="normal" title="ხოტბა">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -415,7 +445,7 @@ Unicode: U+272D, UTF-8: E2 9C AD</string>
                                     <segue destination="uWw-Uj-g9t" kind="unwind" identifier="back" unwindAction="unwindToViewController3:" id="9lB-RG-vAu"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g6X-Ra-OuF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g6X-Ra-OuF">
                                 <rect key="frame" x="25" y="58" width="555" height="522"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

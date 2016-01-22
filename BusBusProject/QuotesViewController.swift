@@ -10,11 +10,11 @@ import UIKit
 
 class QuotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var misalmeba = ["გამარჯობა 'ლ'ამაზო", "ოლაა", "პრივეტ", "ჩკ", "რავა ხარ სიმოოონ"]
-    var ragac = ["რაღაც", "რაღაც", "რაღაც", "რაღაც", "რაღაც"]
-    var damshvidobeba = ["აბა ჰე", "აბა ჰო", "აბა ჰუ"]
-    var kideRagac = ["კიდე რაღაც", "კიდე რაღაც", "კიდე რაღაც", "კიდე რაღაც", "კიდე რაღაც"]
-    var saubrisDawyeba = ["შენი სახელი მაჩუქე ლამაზო"]
+    var misalmeba = ["გამარჯობა ლამაზო", "ოლაა", "ჰაი", "მუჭორექ", "პრივეტები", "რავა ხარ სიმოოონ", "გგ, როგორა ხარ", "ბჯ, რავა ხარ", "ოჯახში როგორ ხარ?", "ჯგირობუა სქანი"]
+    var ragac = ["ტელეფონი დამიჯდა და მაინც გწერ", "ღორის გრიპი რო დადის გაიგე?", "პატიოსანი ბიჭი ვარ ძმიშვილს გეფიცები", "ჩემთან ადგილია გადმო", "გვერდზე სუნიანი კაცი მიზის"]
+    var damshvidobeba = ["აბა ჰე", "აბა ჰო", "აბა ჰუ", "ჩკ", "გაკოცეე", "გამიხარდიიი", "ნომი დატოვე", "ძირაფაშახ", "ჯგირო ორდა", "გახარებული ვორექი სკან ძირაფათი"]
+    var saubrisDawyeba = ["შენი სახელი მაჩუქე ლამაზო", "რომელი საათია?", "რა კაი ამინდია, არა?", "გოგო ხარ თუ ბიჭი?", "რომელ გაჩერებაზე ჩადიხარ?", "რამდენი წლის ხარ?", "მურჯოხო?"]
+    var xotba = ["დიდი ხანია მიწაზე დაეცი?", "მიწაზე რომ დაეცი ფრთები ხომ არ იტკინე?", "შენნაირი სიმპათიური ბევრი ყავს დედაშენს?", "გოლვაფირო", "სკვამი რექი"]
     
     var category : String = ""
     var quotes = [String : [String]]()
@@ -26,7 +26,7 @@ class QuotesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         quotes["მისალმება"] = misalmeba
         quotes["რაღაც"] = ragac
         quotes["დამშვიდობება"] = damshvidobeba
-        quotes["კიდე რაღაც"] = kideRagac
+        quotes["ხოტბა"] = xotba
         quotes["საუბრის დაწყება"] = saubrisDawyeba
         
         tableView.delegate = self
@@ -49,7 +49,8 @@ class QuotesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let quote = quotes[indexPath.row]
         cell.textLabel?.text = quote
         cell.backgroundColor = UIColor.clearColor()
-        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        cell.textLabel?.numberOfLines = 2;
         return cell
     }
     
